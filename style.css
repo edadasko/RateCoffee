@@ -1,0 +1,536 @@
+* {
+  font-family: Helvetica Neue Light, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  min-height: 700px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+body {
+  background-color: #E6E6E6;
+}
+
+h1 {
+  font-weight: lighter;
+}
+
+h1 i {
+  font-size: 0.96em;
+}
+
+.hidden {
+  display: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #E2323F;
+  color: white;
+  padding: 15px 50px;
+  min-width: 650px;
+}
+
+header .header-left-title {
+  float: left;
+}
+
+header .header-search {
+  float: right;
+  padding-top: 3px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+header .header-search input {
+  float: right;
+  box-sizing: border-box;
+  height: 35px;
+  width: 200px;
+  font-size: 1em;
+  outline: none;
+  padding-left: 5px;
+}
+
+header .header-search button {
+  float: right;
+  margin-left: 20px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  background-color: white;
+  font-size: 1em;
+}
+
+.logo {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  margin-left: -50px;
+  background-color: #E2323F;
+}
+
+.logo img {
+  position: absolute;
+  left: 50%;
+  margin-left: -28px;
+  width: 65px;
+  height: 80px;
+}
+
+.header-left-title {
+  padding-left: 10px;
+}
+
+.menu-list {
+  position: absolute;
+  top: 30px;
+  padding-top: 39px;
+}
+
+.menu-list li {
+  display: block;
+  padding: 10px;
+  background-color: #E2323F;
+  font-size: 2em;
+  width: 230px;
+}
+
+.menu-list li a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.menu-list li:hover {
+  background-color: #C1323F;
+}
+
+.main-menu:hover .menu-list {
+  display: block;
+}
+
+@keyframes disappear{
+  0%{
+    margin-top: 0;
+  }
+  100%{
+    margin-top: -100px;
+  }
+}
+
+@keyframes appear{
+  0%{
+    margin-top: -100px;
+  }
+  100%{
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 750px)  {
+  .logo {
+    animation-name: disappear;
+    animation-duration: 1000ms;
+    animation-fill-mode: forwards;
+  }
+}
+
+@media (min-width: 750px)  {
+  .logo {
+    animation-name: appear;
+    animation-duration: 1000ms;
+    animation-fill-mode: forwards;
+  }
+}
+
+/* HEADER END */
+
+
+/* CATALOG */
+
+.sort-section {
+  padding: 35px 0;
+  box-sizing: border-box;
+  height: 90px;
+  background-color: #CCC;
+  margin-bottom: 30px;
+}
+
+.filter {
+  position: relative;
+  display: inline-block;
+  float: left;
+  margin-left: 60px;
+  height: 100%;
+}
+
+.filter-list, .sort-list {
+  position: absolute;
+  padding-top: 35px;
+  left: -10px;
+  z-index: 100;
+}
+
+.filter-list li, .sort-list li {
+  display: block;
+  padding: 10px;
+  background-color: #CCC;
+  width: 230px;
+}
+
+.filter-list li a, .sort-list li a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.filter-list li:hover, .sort-list li:hover {
+  background-color: #AAA;
+}
+
+.filter:hover .filter-list {
+  display: block;
+}
+
+.sort:hover .sort-list {
+  display: block;
+}
+
+.sort-list {
+  text-align: right;
+  left: -160px;
+}
+
+.sort {
+  position: relative;
+  display: inline-block;
+  float: right;
+  margin-right: 60px;
+  height: 100%;
+}
+
+.sort-list {
+  position: absolute;
+}
+
+.sort-section a {
+  display: block;
+  height: 100%;
+  color: black;
+  font-size: 2em;
+}
+
+.catalog-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 170px);
+  column-gap: 50px;
+  row-gap: 25px;
+  height: 100%;
+  padding: 0 30px;
+}
+
+.catalog-item {
+  height: 220px;
+  background-color: #CCC;
+  border-radius: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.catalog-item:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.coffee-image {
+  position: relative;
+  height: 120px;
+  margin-left: 10px;
+  margin-bottom: auto;
+  margin-top: 30px;
+  padding-bottom: 10px;
+}
+
+.coffee-image img {
+  position: relative;
+  height: 100%;
+  z-index: 10;
+}
+
+.coffee-ingredient {
+  position: absolute;
+  left: 6px;
+  top: 0;
+  height: 114px;
+  width: 85px;
+}
+
+.coffee-ingredient1 {
+  clip-path: polygon(0 20%, 100% 20%, 100% 100%, 0% 100%);
+  -webkit-clip-path: polygon(0 20%, 100% 20%, 100% 100%, 0% 100%);
+}
+
+.coffee-ingredient2 {
+  clip-path: polygon(0 45%, 100% 45%, 100% 100%, 0% 100%);
+  -webkit-clip-path: polygon(0 45%, 100% 45%, 100% 100%, 0% 100%);
+}
+
+.coffee-ingredient3 {
+  clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0% 100%);
+  -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0% 100%);
+}
+
+.espresso {
+  background-color: #42210B;
+}
+
+.milk {
+  background-color: #E6E6E6;
+}
+
+.milk-foam {
+  background-color: #B3B3B3;
+}
+
+.coffee-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 10px;
+  margin-top: auto;
+  font-size: 1.2em;
+}
+
+
+/* CATALOG END */
+
+
+/* FOOTER */
+
+footer {
+  box-sizing: border-box;
+  width: 100%;
+  height: 60px;
+  background-color: #B3B3B3;
+  font-weight: lighter;
+  min-width: 650px;
+  padding: 20px 50px 0 50px;
+}
+
+footer .copyright {
+  float: left;
+}
+
+footer .contacts {
+  float: right;
+  margin-top: -10px;
+}
+
+footer .contacts a {
+  color: white;
+  display: inline-block;
+  float: right;
+  margin-left: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 15%;
+  border: none;
+  font-size: 1.8em;
+  vertical-align: middle;
+  text-align: center;
+}
+
+footer .contacts a i {
+  vertical-align: middle;
+  text-align: center;
+}
+
+footer .contacts .vk-link {
+  background-color: #5281B8;
+}
+
+footer .contacts .vk-link:hover {
+  background-color: #4170A7;
+}
+
+footer .contacts .instagram-link {
+  background-color: #D43377;
+}
+
+footer .contacts .instagram-link:hover {
+  background-color: #C32266;
+}
+
+footer .contacts .mail-link {
+  background-color: #008080;
+}
+
+footer .contacts .mail-link:hover {
+  background-color: #007070;
+}
+/* FOOTER END*/
+
+/* FOR IPHONE 8 */
+@media only screen
+    and (device-width : 375px)
+    and (device-height : 667px)
+    and (-webkit-device-pixel-ratio : 2)
+    and (orientation: portrait){
+
+    main {
+      padding-top: 120px;
+      padding-bottom: 120px;
+    }
+
+    .logo {
+      display: none;
+    }
+
+    h1 {
+      font-size: 3.7em;
+    }
+
+    header {
+      padding: 30px 50px;
+    }
+
+    header .header-search input {
+      height: 60px;
+      width: 320px;
+      font-size: 2.8em;
+      padding-left: 15px;
+      font-weight: lighter;
+      margin-top: 3px;
+    }
+
+    header .header-search button {
+      height: 60px;
+      width: 60px;
+      margin-top: 3px;
+      font-size: 1.8em;
+    }
+
+    footer {
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      bottom: 0;
+      height: 100px;
+      font-size: 1.5em;
+      padding-top: 36px;
+    }
+
+    footer .contacts a {
+      margin-left: 40px;
+      width: 60px;
+      height: 60px;
+      margin-top: -5px;
+    }
+
+    .catalog-grid {
+      grid-template-columns: repeat(auto-fit, 600px);
+      row-gap: 50px;
+    }
+
+    .catalog-item {
+      height: 600px;
+      padding: 30px;
+    }
+
+    .coffee-ingredient {
+      position: absolute;
+      left: 10px;
+      top: 0;
+      height: 332px;
+      width: 255px;
+    }
+
+    .coffee-image {
+      height: 350px;
+      margin-left: 40px;
+      margin-top: 80px;
+      padding-bottom: 10px;
+    }
+
+    .coffee-title {
+      margin-bottom: 10px;
+      font-size: 3em;
+    }
+
+    .menu-list {
+      top: 80px;
+      padding-top: 48px;
+    }
+
+    .menu-list li {
+      display: block;
+      padding: 20px;
+      background-color: #E2323F;
+      font-size: 3em;
+      width: 430px;
+    }
+
+    .sort-section {
+      height: 120px;
+      margin-bottom: 50px;
+    }
+
+    .filter-list, .sort-list {
+      position: absolute;
+      padding-top: 35px;
+      left: -25px;
+      z-index: 100;
+    }
+
+    .filter-list li, .sort-list li {
+      padding: 20px;
+      width: 400px;
+    }
+
+    .sort-list {
+      text-align: right;
+      left: -300px;
+    }
+
+    .sort {
+      position: relative;
+      display: inline-block;
+      float: right;
+      margin-right: 60px;
+      height: 100%;
+    }
+
+    .sort-list {
+      position: absolute;
+    }
+
+    .sort-section a {
+      display: block;
+      height: 100%;
+      color: black;
+      font-size: 3em;
+    }
+}
