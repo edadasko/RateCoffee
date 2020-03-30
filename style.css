@@ -2,11 +2,12 @@
   font-family: Helvetica Neue Light, Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
+  font-weight: lighter;
 }
 
 main {
   min-height: 700px;
-  padding-top: 50px;
+  padding-top: 68px;
   padding-bottom: 50px;
 }
 
@@ -14,12 +15,16 @@ body {
   background-color: #E6E6E6;
 }
 
-h1 {
-  font-weight: lighter;
-}
-
 h1 i {
   font-size: 0.96em;
+}
+
+.fa-star {
+  color: white;
+}
+
+.checked {
+  color: #FFFF00;
 }
 
 .hidden {
@@ -104,7 +109,7 @@ header .header-search button {
 
 .menu-list {
   position: absolute;
-  top: 30px;
+  top: 29px;
   padding-top: 39px;
 }
 
@@ -172,9 +177,12 @@ header .header-search button {
 .sort-section {
   padding: 35px 0;
   box-sizing: border-box;
-  height: 90px;
+  height: 70px;
   background-color: #CCC;
   margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .filter {
@@ -182,12 +190,12 @@ header .header-search button {
   display: inline-block;
   float: left;
   margin-left: 60px;
-  height: 100%;
+  margin-right: auto;
 }
 
 .filter-list, .sort-list {
   position: absolute;
-  padding-top: 35px;
+  padding-top: 15px;
   left: -10px;
   z-index: 100;
 }
@@ -227,7 +235,6 @@ header .header-search button {
   display: inline-block;
   float: right;
   margin-right: 60px;
-  height: 100%;
 }
 
 .sort-list {
@@ -254,7 +261,7 @@ header .header-search button {
 .catalog-item {
   height: 220px;
   background-color: #CCC;
-  border-radius: 15%;
+  border-radius: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -266,13 +273,22 @@ header .header-search button {
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
+.grid-item-rating {
+  background-color: #FBB03B;
+  border-radius: 15px;
+  padding: 7px;
+  margin-bottom: 5px;
+  margin-top: auto;
+  text-align: center;
+}
+
 .coffee-image {
   position: relative;
   height: 120px;
   margin-left: 10px;
   margin-bottom: auto;
-  margin-top: 30px;
-  padding-bottom: 10px;
+  margin-top: 20px;
+  padding-bottom: 5px;
 }
 
 .coffee-image img {
@@ -319,8 +335,6 @@ header .header-search button {
 .coffee-title {
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-bottom: 10px;
-  margin-top: auto;
   font-size: 1.2em;
 }
 
@@ -335,18 +349,21 @@ footer {
   width: 100%;
   height: 60px;
   background-color: #B3B3B3;
-  font-weight: lighter;
   min-width: 650px;
-  padding: 20px 50px 0 50px;
+  padding: 0 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 footer .copyright {
-  float: left;
+  margin-left: 0;
+  margin-right: auto;
 }
 
 footer .contacts {
-  float: right;
-  margin-top: -10px;
+  margin-right: 0;
+  margin-left: auto;
 }
 
 footer .contacts a {
@@ -359,6 +376,8 @@ footer .contacts a {
   border-radius: 15%;
   border: none;
   font-size: 1.8em;
+  padding-top: 1.5px;
+  box-sizing: border-box;
   vertical-align: middle;
   text-align: center;
 }
@@ -401,7 +420,7 @@ footer .contacts .mail-link:hover {
     and (orientation: portrait){
 
     main {
-      padding-top: 120px;
+      padding-top: 130px;
       padding-bottom: 120px;
     }
 
@@ -422,7 +441,6 @@ footer .contacts .mail-link:hover {
       width: 320px;
       font-size: 2.8em;
       padding-left: 15px;
-      font-weight: lighter;
       margin-top: 3px;
     }
 
@@ -440,7 +458,6 @@ footer .contacts .mail-link:hover {
       bottom: 0;
       height: 100px;
       font-size: 1.5em;
-      padding-top: 36px;
     }
 
     footer .contacts a {
@@ -458,6 +475,7 @@ footer .contacts .mail-link:hover {
     .catalog-item {
       height: 600px;
       padding: 30px;
+      border-radius: 100px;
     }
 
     .coffee-ingredient {
@@ -471,12 +489,11 @@ footer .contacts .mail-link:hover {
     .coffee-image {
       height: 350px;
       margin-left: 40px;
-      margin-top: 80px;
+      margin-top: 50px;
       padding-bottom: 10px;
     }
 
     .coffee-title {
-      margin-bottom: 10px;
       font-size: 3em;
     }
 
@@ -500,7 +517,7 @@ footer .contacts .mail-link:hover {
 
     .filter-list, .sort-list {
       position: absolute;
-      padding-top: 35px;
+      padding-top: 31px;
       left: -25px;
       z-index: 100;
     }
@@ -511,20 +528,7 @@ footer .contacts .mail-link:hover {
     }
 
     .sort-list {
-      text-align: right;
       left: -300px;
-    }
-
-    .sort {
-      position: relative;
-      display: inline-block;
-      float: right;
-      margin-right: 60px;
-      height: 100%;
-    }
-
-    .sort-list {
-      position: absolute;
     }
 
     .sort-section a {
@@ -532,5 +536,11 @@ footer .contacts .mail-link:hover {
       height: 100%;
       color: black;
       font-size: 3em;
+    }
+
+    .grid-item-rating {
+      font-size: 2em;
+      border-radius: 50px;
+      padding: 20px;
     }
 }
