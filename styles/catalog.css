@@ -146,18 +146,6 @@
   -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0% 100%);
 }
 
-.espresso {
-  background-color: #42210B;
-}
-
-.milk {
-  background-color: #E6E6E6;
-}
-
-.milk-foam {
-  background-color: #B3B3B3;
-}
-
 .coffee-title {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -170,7 +158,7 @@
     and (device-height : 667px)
     and (-webkit-device-pixel-ratio : 2)
     and (orientation: portrait){
-      
+
     .catalog-grid {
       grid-template-columns: repeat(auto-fit, 600px);
       row-gap: 50px;
