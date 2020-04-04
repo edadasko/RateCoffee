@@ -17,6 +17,7 @@ main {
   display: flex;
   height: 320px;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .coffee-picture-info {
@@ -37,7 +38,7 @@ main {
   height: 150px;
   margin-left: 25px;
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .coffee-image img {
@@ -79,7 +80,7 @@ main {
 .star-rating {
   border-radius: 20px;
   padding: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
   margin-top: auto;
   text-align: center;
   background-color: #FBB03B;
@@ -111,11 +112,32 @@ main {
   width: 60%;
   background-color: var(--light-grey-color);
   border-radius: 0 var(--main-border-radius) var(--main-border-radius) 0;
+  padding: 30px;
+  font-size: 1.3em;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.ingredients {
+  margin-top: 20px;
+}
+
+.ingredients li {
+  margin-bottom: 5px;
 }
 
 .coffee-description {
   background-color: var(--light-grey-color);
   border-radius: var(--main-border-radius);
+  padding: 20px 50px;
+  font-size: 1.2em;
+}
+
+.bottom-details {
+  margin-bottom: 0px;
+  margin-top: auto;
 }
 
 @media only screen
@@ -149,7 +171,6 @@ main {
     .coffee-details {
       width: 100%;
       border-radius: var(--main-border-radius);
-      height: 500px;
     }
 
     .coffee-image {
@@ -182,8 +203,24 @@ main {
     }
 
     .star-rating-icon {
-    	float: right;
     	padding-left: 10px;
-    	cursor: pointer;
+    }
+
+    .coffee-details {
+      padding: 30px;
+      font-size: 3em;
+    }
+
+    .ingredients {
+      margin: 50px;
+    }
+
+    .ingredients li {
+      margin-bottom: 5px;
+    }
+
+    .coffee-description {
+      padding: 20px 50px;
+      font-size: 3em;
     }
 }

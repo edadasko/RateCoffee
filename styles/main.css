@@ -296,4 +296,17 @@ footer .contacts .mail-link:hover {
       height: 60px;
       margin-top: -5px;
     }
+
+    .menu-list {
+      top: 80px;
+      padding-top: 48px;
+    }
+
+    .menu-list li {
+      display: block;
+      padding: 20px;
+      background-color: #E2323F;
+      font-size: 3em;
+      width: 430px;
+    }
 }
