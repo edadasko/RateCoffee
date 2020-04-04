@@ -189,19 +189,6 @@
       font-size: 3em;
     }
 
-    .menu-list {
-      top: 80px;
-      padding-top: 48px;
-    }
-
-    .menu-list li {
-      display: block;
-      padding: 20px;
-      background-color: #E2323F;
-      font-size: 3em;
-      width: 430px;
-    }
-
     .sort-section {
       height: 120px;
       margin-bottom: 50px;
