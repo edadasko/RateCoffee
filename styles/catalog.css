@@ -152,12 +152,10 @@
   font-size: 1.2em;
 }
 
-/* FOR IPHONE 8 */
+/* FOR SMARTPHONES */
 @media only screen
-    and (device-width : 375px)
-    and (device-height : 667px)
-    and (-webkit-device-pixel-ratio : 2)
-    and (orientation: portrait){
+    and (max-device-width : 500px)
+    and (orientation: portrait) {
 
     .catalog-grid {
       grid-template-columns: repeat(auto-fit, 600px);

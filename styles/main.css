@@ -6,7 +6,7 @@
 }
 
 main {
-  min-height: 700px;
+  min-height: 100vh;
   padding-top: 68px;
   padding-bottom: 50px;
 }
@@ -249,12 +249,10 @@ footer .contacts .mail-link:hover {
 }
 /* FOOTER END*/
 
-/* FOR IPHONE 8 */
+/* FOR SMARTPHONES*/
 @media only screen
-    and (device-width : 375px)
-    and (device-height : 667px)
-    and (-webkit-device-pixel-ratio : 2)
-    and (orientation: portrait){
+    and (max-device-width : 500px)
+    and (orientation: portrait) {
 
     main {
       padding-top: 130px;
