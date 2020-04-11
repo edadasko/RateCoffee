@@ -21,6 +21,7 @@ input[type=number] {
 }
 
 button {
+  background-color: white;
   outline: none;
   border: none;
   cursor: pointer;
@@ -36,7 +37,6 @@ main {
   min-height: 100vh;
   padding-top: 68px;
   padding-bottom: 50px;
-  box-sizing: border-box;
 }
 
 body {

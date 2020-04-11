@@ -7,9 +7,6 @@ main {
   width: 60%;
   padding-top: 150px;
   margin: 0 auto;
-}
-
-.coffee-info {
   min-width: 600px;
 }
 
@@ -237,7 +234,7 @@ main {
     }
 
     .coffee-picture-info {
-      width: 80%;
+      width: 100%;
       margin: auto;
       border-radius: var(--main-border-radius);
       height: 580px;
@@ -298,7 +295,7 @@ main {
     .coffee-description {
       margin-top: 50px;
       padding: 30px 50px;
-      font-size: 3em;
+      font-size: 2.5em;
     }
 
     .comments-section {

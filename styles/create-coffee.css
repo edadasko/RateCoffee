@@ -4,8 +4,10 @@
 }
 
 main {
-  width: 60%;
   padding-top: 150px;
+  margin: 0 auto;
+  width: 60%;
+  min-width: 700px;
   margin: 0 auto;
 }
 
@@ -13,15 +15,14 @@ input {
   padding: 5px;
 }
 
-.create-coffee-form {
-  min-width: 700px;
+label {
+  font-size: 1.2em;
 }
 
 .coffee-form-block {
   display: flex;
   min-height: 320px;
   width: 100%;
-  margin-bottom: 20px;
 }
 
 .coffee-form-left {
@@ -66,8 +67,10 @@ input {
 }
 
 #coffee-value {
-  margin-top: 5px;
+  margin-top: 7px;
   width: 20%;
+  font-size: 1.1em;
+  padding: 2px 5px;
   text-align: center;
 }
 
@@ -158,10 +161,10 @@ input {
     }
 
     .coffee-form-left {
-      width: 80%;
+      width: 100%;
       margin: auto;
       border-radius: var(--main-border-radius);
-      height: 580px;
+      padding-bottom: 30px;
       margin-bottom: 50px;
     }
 
@@ -174,6 +177,74 @@ input {
 
     .coffee-form-right {
       width: 100%;
+      padding: 50px;
       border-radius: var(--main-border-radius);
+    }
+
+    label {
+      font-size: 2.5em;
+    }
+
+    #coffee-name {
+      font-size: 2.8em;
+      padding: 10px 20px;
+      margin-bottom: 25px;
+    }
+
+    #coffee-value {
+      margin-top: 15px;
+      font-size: 2.5em;
+    }
+
+    .add-ingredients-section {
+      margin-bottom: 30px;
+    }
+
+    .ingedients-select-list {
+      margin-bottom: 30px;
+    }
+
+    .ingedient-select-list-item {
+      font-size: 2em;
+      margin-left: 40px;
+      padding-right: 70px;
+      margin-bottom: 20px;
+    }
+
+    .ingedients-select {
+      padding: 10px;
+      min-width: 300px;
+      margin-right: 10px;
+    }
+
+    .ingredient-value-input {
+      font-size: 0.9em;
+      padding: 10px;
+      width: 20%;
+    }
+
+    .remove-ingredient-button {
+      width: 70px;
+      height: 70px;
+      margin-right: 40px;
+    }
+
+    #add-ingredient-button {
+      width: 100px;
+      height: 100px;
+      font-size: 3em;
+      padding-bottom: 0.2em;
+    }
+
+    #description-textarea {
+      padding: 20px;
+      font-size: 2em;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    #create-button {
+      padding: 15px;
+      font-size: 1.5em;
     }
 }
