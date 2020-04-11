@@ -5,10 +5,38 @@
   font-weight: lighter;
 }
 
+input {
+  outline: none;
+  border: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+textarea {
+  outline: none;
+  border: none;
+  resize: none;
+}
+
 main {
   min-height: 100vh;
   padding-top: 68px;
   padding-bottom: 50px;
+  box-sizing: border-box;
 }
 
 body {
@@ -31,10 +59,10 @@ h1 i {
   display: none;
 }
 
-.clearfix {
-    content: "";
-    display: table;
-    clear: both;
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 a {
