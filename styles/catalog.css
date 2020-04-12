@@ -1,10 +1,9 @@
 /* CATALOG */
-
 .sort-section {
   padding: 35px 0;
   box-sizing: border-box;
   height: 70px;
-  background-color: #CCC;
+  background-color: var(--light-grey-color);
   margin-bottom: 30px;
   display: flex;
   align-items: center;
@@ -43,10 +42,7 @@
   background-color: #AAA;
 }
 
-.filter:hover .filter-list {
-  display: block;
-}
-
+.filter:hover .filter-list,
 .sort:hover .sort-list {
   display: block;
 }
@@ -90,7 +86,7 @@
 
 .catalog-item {
   height: 220px;
-  background-color: #CCC;
+  background-color: var(--light-grey-color);
   border-radius: 30px;
   display: flex;
   justify-content: center;
@@ -98,8 +94,6 @@
   flex-direction: column;
   padding: 10px;
 }
-
-
 
 .catalog-item:hover {
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -222,7 +216,7 @@
     }
 
     .grid-item-rating {
-      font-size: 2em;
+      font-size: 2.5em;
       border-radius: 50px;
       padding: 20px;
     }

@@ -1,3 +1,8 @@
+:root {
+  --light-grey-color: #CCC;
+  --main-border-radius: 30px;
+}
+
 * {
   font-family: Helvetica Neue Light, Helvetica, Arial, sans-serif;
   margin: 0;
@@ -34,9 +39,10 @@ textarea {
 }
 
 main {
-  min-height: 100vh;
+  min-height: calc(100vh - 60px);
   padding-top: 68px;
   padding-bottom: 50px;
+  box-sizing: border-box;
 }
 
 body {
@@ -144,8 +150,8 @@ header .header-search button {
 
 .menu-list {
   position: absolute;
-  top: 29px;
-  padding-top: 39px;
+  top: 50px;
+  padding-top: 17px;
 }
 
 .menu-list li {

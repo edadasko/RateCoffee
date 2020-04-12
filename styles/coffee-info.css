@@ -1,8 +1,3 @@
-:root {
-  --light-grey-color: #CCC;
-  --main-border-radius: 30px;
-}
-
 main {
   width: 60%;
   padding-top: 150px;
@@ -101,7 +96,6 @@ main {
 .star-rating-input:checked ~ .star-rating-icon:before {
 	color: yellow;
 }
-
 /* STAR RATING END */
 
 /* COFFEE DETAILS */
@@ -130,6 +124,7 @@ main {
   background-color: var(--light-grey-color);
   border-radius: var(--main-border-radius);
   padding: 20px 50px;
+  text-align: center;
   font-size: 1.2em;
 }
 
@@ -235,9 +230,9 @@ main {
 
     .coffee-picture-info {
       width: 100%;
+      height: auto;
       margin: auto;
       border-radius: var(--main-border-radius);
-      height: 580px;
       margin-bottom: 50px;
     }
 
@@ -248,7 +243,7 @@ main {
 
     .coffee-image {
       margin-left: 40px;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       margin-top: 40px;
       height: 300px;
     }
@@ -264,15 +259,15 @@ main {
     .coffee-title {
       overflow: hidden;
       text-overflow: ellipsis;
-      font-size: 3.5em;
+      font-size: 4em;
       margin-bottom: 30px;
     }
 
     .star-rating {
-      border-radius: 30px;
+      border-radius: 50px;
       font-size: 3em;
       margin-bottom: 20px;
-      padding: 15px;
+      padding: 25px;
     }
 
     .star-rating-icon {
@@ -306,25 +301,25 @@ main {
     .comments-section textarea {
       margin-bottom: 30px;
       padding: 30px;
-      font-size: 2em;
+      font-size: 2.5em;
     }
 
     .comments-section input[type="submit"] {
       padding: 10px 20px;
-      font-size: 2em;
+      font-size: 2.5em;
     }
 
-    .comment-list-item{
+    .comment-list-item {
       margin-bottom: 30px;
     }
 
     .comment {
       padding: 30px;
-      font-size: 1.8em;
+      font-size: 2.5em;
     }
 
     .comment-info {
-      width: 30%;
+      width: 40%;
       float: left;
       box-sizing: border-box;
     }
@@ -334,7 +329,7 @@ main {
     }
 
     .comment-text {
-      width: 70%;
+      width: 60%;
       float: left;
       box-sizing: border-box;
     }
