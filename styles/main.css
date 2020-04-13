@@ -146,14 +146,15 @@ header .header-search button {
 
 .menu-list li {
   display: block;
-  padding: 10px;
+  line-height: 60px;
   background-color: #E2323F;
   font-size: 2em;
-  width: 230px;
+  width: 250px;
 }
 
 .menu-list li a {
   display: block;
+  margin-left: 10px;
   height: 100%;
   width: 100%;
 }
@@ -188,9 +189,7 @@ header .header-search button {
 
 /* HEADER END */
 
-
 /* FOOTER */
-
 footer {
   box-sizing: border-box;
   width: 100%;
@@ -282,7 +281,7 @@ footer .contacts .mail-link:hover {
     header .header-search {
       padding-top: 5px;
     }
-    
+
     header .header-search input {
       height: 60px;
       width: 320px;
