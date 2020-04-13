@@ -29,7 +29,8 @@ main form input {
 }
 
 main form button {
-  float: right;
+  display: block;
+  margin: 0 0 0 auto;
   font-size: inherit;
   padding: 5px;
 }

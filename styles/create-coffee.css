@@ -73,19 +73,23 @@ label {
   margin-bottom: 20px;
 }
 
-.ingedients-select-list {
+.ingredients-select-list {
   margin-bottom: 20px;
 }
 
-.ingedient-select-list-item {
-  width: 100%;
+.ingredient-select-list-item {
   margin-left: 20px;
   text-align: left;
-  padding-right: 50px;
   margin-bottom: 10px;
 }
 
-.ingedients-select {
+.flex-ingredient-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ingredients-select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -98,29 +102,28 @@ label {
 }
 
 .ingredient-value-input {
+  margin-left: 10px;
+  margin-right: auto;
+  text-align: center;
   font-size: 1em;
   display: inline-block;
   width: 20%;
 }
 
 .remove-ingredient-button {
-  font-size: 1.2em;
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  display: inline-block;
-  float: right;
-  margin-right: 20px;
-  padding-bottom: 0.1em;
+  font-size: 0.5em;
 }
 
 #add-ingredient-button {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  font-size: 1.8em;
-  padding-bottom: 0.2em;
-  float: right;
+  font-size: 1.2em;
+  display: block;
+  margin: 0 0 0 auto;
 }
 
 #description-textarea {
@@ -134,7 +137,8 @@ label {
 #create-button {
   padding: 5px;
   font-size: 0.8em;
-  float: right;
+  display: block;
+  margin: 0 0 0 auto;
 }
 
 @media only screen
@@ -195,18 +199,17 @@ label {
       margin-bottom: 30px;
     }
 
-    .ingedients-select-list {
+    .ingredients-select-list {
       margin-bottom: 30px;
     }
 
-    .ingedient-select-list-item {
+    .ingredient-select-list-item {
       font-size: 2em;
       margin-left: 40px;
-      padding-right: 70px;
       margin-bottom: 20px;
     }
 
-    .ingedients-select {
+    .ingredients-select {
       padding: 10px;
       min-width: 300px;
       margin-right: 10px;
@@ -221,14 +224,12 @@ label {
     .remove-ingredient-button {
       width: 70px;
       height: 70px;
-      margin-right: 40px;
     }
 
     #add-ingredient-button {
       width: 100px;
       height: 100px;
-      font-size: 3em;
-      padding-bottom: 0.2em;
+      font-size: 2.5em;
     }
 
     #description-textarea {

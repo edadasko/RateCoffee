@@ -13,7 +13,6 @@
 .filter {
   position: relative;
   display: inline-block;
-  float: left;
   margin-left: 60px;
   margin-right: auto;
 }
@@ -55,7 +54,6 @@
 .sort {
   position: relative;
   display: inline-block;
-  float: right;
   margin-right: 60px;
 }
 

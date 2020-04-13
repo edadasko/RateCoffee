@@ -28,8 +28,8 @@
       </div>
       <div class="header-search">
         <form class="" action="#" method="post">
-          <button type="button" name="search-button"><i class="fas fa-search"></i></button>
           <input type="text" name="search-input" placeholder="Search...">
+          <button type="button" name="search-button"><i class="fas fa-search"></i></button>
         </form>
       </div>
     </header>
@@ -45,26 +45,30 @@
             <input type="number" id="coffee-value" name="coffee-value" value="" placeholder="ml" required>
           </div>
           <div class="coffee-form-right">
-            <div class="add-ingredients-section clearfix">
-              <ol class="ingedients-select-list">
-                <li class="ingedient-select-list-item">
-                  <select class="ingedients-select" name="ingedients-select">
-                    <option value="espresso">ESPRESSO</option>
-                    <option value="water">WATER</option>
-                  </select>
-                  <input class="ingredient-value-input" type="number" name="ingredient-value" value="" placeholder="VALUE" required>
-                  <button class="remove-ingredient-button" type="button" name="remove-ingredient-button">-</button>
+            <div class="add-ingredients-section">
+              <ol class="ingredients-select-list">
+                <li class="ingredient-select-list-item">
+                  <div class="flex-ingredient-wrap">
+                    <select class="ingredients-select" name="ingredients-select">
+                      <option value="espresso">ESPRESSO</option>
+                      <option value="water">WATER</option>
+                    </select>
+                    <input class="ingredient-value-input" type="number" name="ingredient-value" value="" placeholder="VALUE" required>
+                    <button class="remove-ingredient-button" type="button" name="remove-ingredient-button"><i class="fas fa-minus"></i></button>
+                  </div>
                 </li>
-                <li class="ingedient-select-list-item">
-                  <select class="ingedients-select" name="ingedients-select">
-                    <option value="espresso">ESPRESSO</option>
-                    <option value="water" selected>WATER</option>
-                  </select>
-                  <input class="ingredient-value-input" type="number" name="ingredient-value" value="" placeholder="VALUE" required>
-                  <button class="remove-ingredient-button" type="button" name="remove-ingredient-button">-</button>
+                <li class="ingredient-select-list-item">
+                  <div class="flex-ingredient-wrap">
+                    <select class="ingredients-select" name="ingredients-select">
+                      <option value="espresso">ESPRESSO</option>
+                      <option value="water" selected>WATER</option>
+                    </select>
+                    <input class="ingredient-value-input" type="number" name="ingredient-value" value="" placeholder="VALUE" required>
+                    <button class="remove-ingredient-button" type="button" name="remove-ingredient-button"><i class="fas fa-minus"></i></button>
+                  </div>
                 </li>
               </ol>
-              <button id="add-ingredient-button" type="button" name="add-ingredient-button">+</button>
+              <button id="add-ingredient-button" type="button" name="add-ingredient-button"><i class="fas fa-plus"></i></button>
             </div>
             <textarea id="description-textarea" name="name" rows="3" placeholder="DESCRIPTION"></textarea>
             <button id="create-button" type="submit" name="create-button">CREATE</button>
@@ -75,9 +79,9 @@
     <footer>
       <p class="copyright">Copyright @ 2020. Created by Eduard Adasko </p>
       <div class="contacts">
-        <a href="mailto:edadasko@gmail.com" class="mail-link"><i class="far fa-envelope"></i></a>
-        <a href="https://instagram.com/edadasko" class="instagram-link"><i class="fab fa-instagram"></i></a>
         <a href="https://vk.com/edadasko" class="vk-link"><i class="fab fa-vk"></i></a>
+        <a href="https://instagram.com/edadasko" class="instagram-link"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:edadasko@gmail.com" class="mail-link"><i class="far fa-envelope"></i></a>
       </div>
     </footer>
   </body>
