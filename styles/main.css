@@ -93,7 +93,6 @@ header .header-left-title {
 }
 
 header .header-search {
-  display: block;
   margin: 0 0 0 auto;
   height: 100%;
   box-sizing: border-box;
@@ -120,20 +119,17 @@ header .header-search button {
 }
 
 .logo {
-  position: relative;
+  position: absolute;
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  position: absolute;
-  left: 50%;
-  margin-left: -50px;
+  left: calc(50% - 50px);
   background-color: #E2323F;
 }
 
 .logo img {
   position: absolute;
-  left: 50%;
-  margin-left: -28px;
+  left: calc(50% - 28px);
   width: 65px;
   height: 80px;
 }
@@ -170,37 +166,23 @@ header .header-search button {
   display: block;
 }
 
-@keyframes disappear{
-  0%{
-    margin-top: 0;
-  }
-  100%{
-    margin-top: -100px;
-  }
-}
-
-@keyframes appear{
-  0%{
-    margin-top: -100px;
-  }
-  100%{
-    margin-top: 0;
-  }
-}
-
 @media (max-width: 750px)  {
   .logo {
-    animation-name: disappear;
-    animation-duration: 1000ms;
-    animation-fill-mode: forwards;
+    transform: translate(0, -100px);
+    -webkit-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    transition-duration: 1s;
   }
 }
 
 @media (min-width: 750px)  {
   .logo {
-    animation-name: appear;
-    animation-duration: 1000ms;
-    animation-fill-mode: forwards;
+    transform: translate(0, 0);
+    -webkit-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    transition-duration: 1s;
   }
 }
 
@@ -297,18 +279,20 @@ footer .contacts .mail-link:hover {
       padding: 30px 50px;
     }
 
+    header .header-search {
+      padding-top: 5px;
+    }
+    
     header .header-search input {
       height: 60px;
       width: 320px;
-      font-size: 2.8em;
+      font-size: 1.8em;
       padding-left: 15px;
-      margin-top: 3px;
     }
 
     header .header-search button {
       height: 60px;
       width: 60px;
-      margin-top: 3px;
       font-size: 1.8em;
     }
 
