@@ -1,0 +1,326 @@
+:root {
+  --light-grey-color: #CCC;
+  --main-border-radius: 30px;
+}
+
+* {
+  font-family: Helvetica Neue Light, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-weight: lighter;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+button {
+  background-color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+textarea {
+  outline: none;
+  border: none;
+  resize: none;
+}
+
+main {
+  min-height: calc(100vh - 60px);
+  padding-top: 65px;
+  padding-bottom: 50px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #E6E6E6;
+}
+
+h1 i {
+  font-size: 0.96em;
+}
+
+.fa-star {
+  color: white;
+}
+
+.checked {
+  color: #FFFF00;
+}
+
+.hidden {
+  display: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #E2323F;
+  color: white;
+  padding: 15px 50px;
+  min-width: 650px;
+  display: flex;
+}
+
+header .header-left-title {
+  display: block;
+  margin: 0 auto 0 0;
+}
+
+header .header-search {
+  margin: 0 0 0 auto;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+header .header-search input {
+  box-sizing: border-box;
+  height: 35px;
+  width: 200px;
+  font-size: 1em;
+  outline: none;
+  padding-left: 5px;
+}
+
+header .header-search button {
+  margin-left: 20px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  background-color: white;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.logo {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  left: calc(50% - 50px);
+  background-color: #E2323F;
+}
+
+.logo img {
+  position: absolute;
+  left: calc(50% - 28px);
+  width: 65px;
+  height: 80px;
+}
+
+.header-left-title {
+  padding-left: 10px;
+}
+
+.menu-list {
+  position: absolute;
+  top: 50px;
+  padding-top: 17px;
+}
+
+.menu-list li {
+  display: block;
+  line-height: 60px;
+  background-color: #E2323F;
+  font-size: 2em;
+  width: 250px;
+}
+
+.menu-list li a {
+  display: block;
+  margin-left: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+.menu-list li:hover {
+  background-color: #C1323F;
+}
+
+.main-menu:hover .menu-list {
+  display: block;
+}
+
+@media (max-width: 750px)  {
+  .logo {
+    transform: translate(0, -100px);
+    -webkit-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    transition-duration: 1s;
+  }
+}
+
+@media (min-width: 750px)  {
+  .logo {
+    transform: translate(0, 0);
+    -webkit-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    transition-duration: 1s;
+  }
+}
+
+/* HEADER END */
+
+/* FOOTER */
+footer {
+  box-sizing: border-box;
+  width: 100%;
+  height: 60px;
+  background-color: #B3B3B3;
+  min-width: 650px;
+  padding: 0 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer .copyright {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+footer .contacts {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+footer .contacts a {
+  color: white;
+  display: inline-block;
+  margin-left: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 15%;
+  font-size: 1.8em;
+  padding-top: 1.5px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  text-align: center;
+}
+
+footer .contacts a i {
+  vertical-align: middle;
+  text-align: center;
+}
+
+footer .contacts .vk-link {
+  background-color: #5281B8;
+}
+
+footer .contacts .vk-link:hover {
+  background-color: #4170A7;
+}
+
+footer .contacts .instagram-link {
+  background-color: #D43377;
+}
+
+footer .contacts .instagram-link:hover {
+  background-color: #C32266;
+}
+
+footer .contacts .mail-link {
+  background-color: #008080;
+}
+
+footer .contacts .mail-link:hover {
+  background-color: #007070;
+}
+/* FOOTER END*/
+
+/* FOR SMARTPHONES*/
+@media only screen
+    and (max-device-width : 500px)
+    and (orientation: portrait) {
+
+    main {
+      padding-top: 130px;
+      padding-bottom: 130px;
+    }
+
+    .logo {
+      display: none;
+    }
+
+    h1 {
+      font-size: 3.7em;
+    }
+
+    header {
+      padding: 30px 50px;
+    }
+
+    header .header-search {
+      padding-top: 5px;
+    }
+
+    header .header-search input {
+      height: 60px;
+      width: 320px;
+      font-size: 1.8em;
+      padding-left: 15px;
+    }
+
+    header .header-search button {
+      height: 60px;
+      width: 60px;
+      font-size: 1.8em;
+    }
+
+    footer {
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      bottom: 0;
+      height: 100px;
+      font-size: 1.5em;
+    }
+
+    footer .contacts a {
+      margin-left: 40px;
+      width: 60px;
+      height: 60px;
+      margin-top: -5px;
+    }
+
+    .menu-list {
+      top: 80px;
+      padding-top: 48px;
+    }
+
+    .menu-list li {
+      display: block;
+      padding: 20px;
+      background-color: #E2323F;
+      font-size: 3em;
+      width: 430px;
+    }
+}
