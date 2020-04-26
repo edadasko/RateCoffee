@@ -132,21 +132,6 @@
   width: 85px;
 }
 
-.coffee-ingredient1 {
-  clip-path: polygon(0 20%, 100% 20%, 100% 100%, 0% 100%);
-  -webkit-clip-path: polygon(0 20%, 100% 20%, 100% 100%, 0% 100%);
-}
-
-.coffee-ingredient2 {
-  clip-path: polygon(0 45%, 100% 45%, 100% 100%, 0% 100%);
-  -webkit-clip-path: polygon(0 45%, 100% 45%, 100% 100%, 0% 100%);
-}
-
-.coffee-ingredient3 {
-  clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0% 100%);
-  -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0% 100%);
-}
-
 .coffee-title {
   overflow: hidden;
   text-overflow: ellipsis;
