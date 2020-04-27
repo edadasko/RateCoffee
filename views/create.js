@@ -8,14 +8,14 @@ let create = `
       </div>
       <input type="text" id="coffee-name" name="coffee-name" value="" placeholder="ENTER A NAME HERE..." required>
       <label for="coffee-value">STANDARD VALUE:</label>
-      <input type="number" id="coffee-value" name="coffee-value" value="" placeholder="ml" required>
+      <input type="number" id="coffee-value" name="coffee-value" value="" placeholder="ml" oninput="recalculateImage();" required>
     </div>
     <div class="coffee-form-right">
       <div class="add-ingredients-section">
         <ul class="ingredients-select-list">
           <li class="ingredient-select-list-item">
             <div class="flex-ingredient-wrap">
-              <select class="ingredients-select" name="ingredients-select">
+              <select class="ingredients-select" name="ingredients-select" onchange="recalculateImage();">
                 <option value="espresso">ESPRESSO</option>
                 <option value="water">WATER</option>
                 <option value="milk">MILK</option>
@@ -27,7 +27,7 @@ let create = `
                 <option value="liquor">LIQUOR</option>
                 <option value="whiskey">WHISKEY</option>
               </select>
-              <input class="ingredient-value-input" type="number" name="ingredient-value" value="" placeholder="VALUE" required>
+              <input class="ingredient-value-input" type="number" name="ingredient-value" value="" placeholder="VALUE" oninput="recalculateImage();" required>
             </div>
           </li>
         </ul>

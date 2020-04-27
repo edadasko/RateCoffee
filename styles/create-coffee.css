@@ -45,6 +45,14 @@ label {
   z-index: 10;
 }
 
+.coffee-ingredient {
+  position: absolute;
+  left: 6px;
+  top: 0;
+  height: 143px;
+  width: 109px;
+}
+
 .coffee-form-right {
   width: 60%;
   background-color: var(--light-grey-color);
