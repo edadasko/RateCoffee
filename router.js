@@ -9,23 +9,34 @@ const routes = {
 const scripts = {
   '/' : "scripts/catalog.js",
   '/create' : "",
-  '/coffee-info' : "",
+  '/coffee-info' : "scripts/coffee-info.js",
   '/login' : "",
   '/register' : ""
 }
 
+function getPathWithoutParams(pathname) {
+  let indexOfSecondSlash = pathname.indexOf('?');
+  if (indexOfSecondSlash != -1) {
+    return pathname.slice(0, indexOfSecondSlash);
+  }
+  return pathname;
+}
+
 function addScript(pathname) {
+  pathname = getPathWithoutParams(pathname);
   var scriptSrc = scripts[pathname];
-  if (script != "") {
+  if (scriptSrc != "") {
     var script = document.createElement("script");
     script.src = scriptSrc;
     rootDiv.appendChild(script);
   }
 }
 
-const rootDiv = document.getElementById('root');
-rootDiv.innerHTML = routes[window.location.pathname];
-addScript(window.location.pathname);
+function addContent(pathname) {
+  pathname = getPathWithoutParams(pathname);
+  rootDiv.innerHTML = routes[pathname];
+  addScript(pathname);
+}
 
 const onNavigate = (pathname) => {
   window.history.pushState(
@@ -33,11 +44,12 @@ const onNavigate = (pathname) => {
     pathname,
     window.location.origin + pathname
   );
-  rootDiv.innerHTML = routes[pathname];
-  addScript(pathname);
+  addContent(pathname);
 }
 
 window.onpopstate = () => {
-  rootDiv.innerHTML = routes[window.location.pathname]
-  addScript(window.location.pathname);
+  addContent(window.location.pathname);
 }
+
+const rootDiv = document.getElementById('root');
+addContent(window.location.pathname);

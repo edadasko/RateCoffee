@@ -3,6 +3,7 @@ let coffeeStorage =
   {
     id: 1,
     name: "cappuccino",
+    addedBy: "admin",
     rating: 4.3333,
     value: 300,
     description: "An espresso-based coffee drink that originated in Italy, and is traditionally prepared with steamed milk foam.",
@@ -22,7 +23,7 @@ let coffeeStorage =
     ],
     comments: [
       {
-        user: "qwerty",
+        author: "qwerty",
         text: "Classics are always the best! Love this coffee so much!!!",
         date: "2020-01-01"
       }
@@ -31,9 +32,10 @@ let coffeeStorage =
   {
     id: 2,
     name: "espresso",
+    addedBy: "admin",
     value: 100,
     rating: 3.3333,
-    description: "An espresso-based coffee drink that originated in Italy, and is traditionally prepared with steamed milk foam.",
+    description: "Espresso is a coffee-making method of Italian origin, in which a small amount of nearly boiling water is forced under pressure (expressed) through finely-ground coffee beans.",
     ingredients: [
       {
         name: "espresso",
@@ -42,7 +44,7 @@ let coffeeStorage =
     ],
     comments: [
       {
-        user: "qwerty",
+        author: "qwerty",
         text: "Classics are always the best! Love this coffee so much!!!",
         date: "2020-01-01"
       }
@@ -51,9 +53,10 @@ let coffeeStorage =
   {
     id: 3,
     name: "americano",
+    addedBy: "admin",
     value: 300,
     rating: 3.3333,
-    description: "An espresso-based coffee drink that originated in Italy, and is traditionally prepared with steamed milk foam.",
+    description: "Americano is a type of coffee drink prepared by diluting an espresso with hot water, giving it a similar strength to, but different flavor from, traditionally brewed coffee. ",
     ingredients: [
       {
         name: "water",
@@ -66,7 +69,7 @@ let coffeeStorage =
     ],
     comments: [
       {
-        user: "qwerty",
+        author: "qwerty",
         text: "Classics are always the best! Love this coffee so much!!!",
         date: "2020-01-01"
       }
