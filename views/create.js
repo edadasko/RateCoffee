@@ -18,23 +18,20 @@ let create = `
               <select class="ingredients-select" name="ingredients-select">
                 <option value="espresso">ESPRESSO</option>
                 <option value="water">WATER</option>
+                <option value="milk">MILK</option>
+                <option value="milk-foam">MILK FOAM</option>
+                <option value="chocolate">CHOCOLATE</option>
+                <option value="honey">HONEY</option>
+                <option value="syrup">SYRUP</option>
+                <option value="whipped-cream">WHIPPED CREAM</option>
+                <option value="liquor">LIQUOR</option>
+                <option value="whiskey">WHISKEY</option>
               </select>
               <input class="ingredient-value-input" type="number" name="ingredient-value" value="" placeholder="VALUE" required>
-              <button class="remove-ingredient-button" type="button" name="remove-ingredient-button"><i class="fas fa-minus"></i></button>
-            </div>
-          </li>
-          <li class="ingredient-select-list-item">
-            <div class="flex-ingredient-wrap">
-              <select class="ingredients-select" name="ingredients-select">
-                <option value="espresso">ESPRESSO</option>
-                <option value="water" selected>WATER</option>
-              </select>
-              <input class="ingredient-value-input" type="number" name="ingredient-value" value="" placeholder="VALUE" required>
-              <button class="remove-ingredient-button" type="button" name="remove-ingredient-button"><i class="fas fa-minus"></i></button>
             </div>
           </li>
         </ul>
-        <button id="add-ingredient-button" type="button" name="add-ingredient-button"><i class="fas fa-plus"></i></button>
+        <button id="add-ingredient-button" type="button" name="add-ingredient-button" onclick="addIngredient();"><i class="fas fa-plus"></i></button>
       </div>
       <textarea id="description-textarea" name="name" rows="3" placeholder="DESCRIPTION"></textarea>
       <button id="create-button" type="submit" name="create-button">CREATE</button>

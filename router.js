@@ -8,7 +8,7 @@ const routes = {
 
 const scripts = {
   '/' : "scripts/catalog.js",
-  '/create' : "",
+  '/create' : "scripts/create-coffee.js",
   '/coffee-info' : "scripts/coffee-info.js",
   '/login' : "",
   '/register' : ""
