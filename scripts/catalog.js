@@ -1,7 +1,7 @@
 function populateCatalog() {
   let catalogDiv = document.getElementById('catalog-grid');
 
-  for (let coffee of coffeeStorage) {
+  for (let coffee of coffeeStorage.coffees) {
     let coffeeNode = document.createElement("a");
     coffeeNode.setAttribute('href', '#');
     coffeeNode.setAttribute('onclick', `onNavigate('/coffee-info?id=${coffee.id}'); return false;`);
@@ -33,7 +33,7 @@ function createRatingDiv(coffee) {
     let starSpan = document.createElement("span");
     starSpan.classList.add("fa");
     starSpan.classList.add("fa-star");
-    if (coffee.rating > i + 1) {
+    if (coffee.getRating() >= i + 0.5) {
       starSpan.classList.add("checked");
     }
     ratingDiv.appendChild(starSpan);

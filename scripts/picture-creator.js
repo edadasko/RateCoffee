@@ -18,6 +18,11 @@ function createCoffeeImageDiv(coffee) {
 
   const regularValue = 350;
   let reductionFactor = coffee.value / regularValue;
+
+  if (reductionFactor > 1) {
+    reductionFactor = 1;
+  }
+
   if (coffee.value < regularValue) {
     sumOfValues = (sumOfValues * reductionFactor) | 0;
   }

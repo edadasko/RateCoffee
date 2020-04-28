@@ -13,7 +13,7 @@ function addIngredient() {
        <option value="liquor">LIQUOR</option>
        <option value="whiskey">WHISKEY</option>
      </select>
-     <input class="ingredient-value-input" type="number" name="ingredient-value" value="" placeholder="VALUE" oninput="recalculateImage();" required>
+     <input class="ingredient-value-input" type="number" name="ingredient-value" value="" placeholder="%" oninput="recalculateImage();" required>
      <button class="remove-ingredient-button" type="button" name="remove-ingredient-button" onclick="removeIngredient();"><i class="fas fa-minus"></i></button>
   </div>
   `
@@ -68,6 +68,9 @@ function recalculateImage() {
 
   const regularValue = 350;
   let reductionFactor = coffeeValue / regularValue;
+  if (reductionFactor > 1) {
+    reductionFactor = 1;
+  }
   if (coffeeValue < regularValue) {
     sumOfValues = (sumOfValues * reductionFactor) | 0;
   }
@@ -86,4 +89,27 @@ function recalculateImage() {
       }
     }
   }
+}
+
+function submitForm() {
+  let name = document.getElementById('coffee-name').value;
+  let value = document.getElementById('coffee-value').value;
+  let description = document.getElementById('description-textarea').value;
+  let user = 'admin'; // TODO
+
+  let ingredientsList = [];
+  let ingredientsSelects = document.getElementsByClassName('ingredients-select');
+  let ingredientsValues = document.getElementsByClassName('ingredient-value-input');
+
+  for (let i = ingredientsSelects.length - 1; i >= 0; i--) {
+    let name = ingredientsSelects[i].options[ingredientsSelects[i].selectedIndex].value;
+    let value = +ingredientsValues[i].value;
+    ingredientsList.push(new Ingredient(name, value));
+  }
+
+  console.log(ingredientsList);
+
+  let coffee = new Coffee(name, user, value, description, ingredientsList);
+  coffeeStorage.addCoffee(coffee);
+  onNavigate('/');
 }

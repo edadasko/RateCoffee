@@ -2,7 +2,7 @@ function getCoffeeFromParams() {
   let queryString = window.location.search;
   let urlParams = new URLSearchParams(queryString);
   let coffeeId = urlParams.get('id');
-  return coffeeStorage.find(c => c.id == coffeeId);
+  return coffeeStorage.coffees.find(c => c.id == coffeeId);
 }
 
 function createCoffeeTitle(coffee) {
@@ -55,7 +55,7 @@ function populateComments(coffee) {
 
     let time = document.createElement("time");
     time.setAttribute('datetime', comment.date);
-    time.appendChild(document.createTextNode(comment.date));
+    time.appendChild(document.createTextNode((new Date(comment.date).toISOString().slice(0, 10))));
     commentInfoDiv.appendChild(time);
 
     let commentText = document.createElement("p");
@@ -84,7 +84,7 @@ function setInfo() {
 
   populateIngredients(coffee);
 
-  let averageMark = document.createTextNode(coffee.rating);
+  let averageMark = document.createTextNode(coffee.getRating());
   document.querySelector('.average-mark').appendChild(averageMark);
 
   let addedBy = document.createTextNode(coffee.addedBy);

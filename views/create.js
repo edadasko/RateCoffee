@@ -1,6 +1,6 @@
 let create = `
 <link rel="stylesheet" href="styles/create-coffee.css">
-<form class="create-coffee-form">
+<form class="create-coffee-form" onsubmit="submitForm();">
   <div class="coffee-form-block">
     <div class="coffee-form-left">
       <div class="coffee-image">
@@ -27,14 +27,14 @@ let create = `
                 <option value="liquor">LIQUOR</option>
                 <option value="whiskey">WHISKEY</option>
               </select>
-              <input class="ingredient-value-input" type="number" name="ingredient-value" value="" placeholder="VALUE" oninput="recalculateImage();" required>
+              <input class="ingredient-value-input" type="number" name="ingredient-value" value="" placeholder="%" oninput="recalculateImage();" required>
             </div>
           </li>
         </ul>
         <button id="add-ingredient-button" type="button" name="add-ingredient-button" onclick="addIngredient();"><i class="fas fa-plus"></i></button>
       </div>
-      <textarea id="description-textarea" name="name" rows="3" placeholder="DESCRIPTION"></textarea>
-      <button id="create-button" type="submit" name="create-button">CREATE</button>
+      <textarea id="description-textarea" name="name" rows="3" placeholder="DESCRIPTION" required></textarea>
+      <button id="create-button" name="create-button" onclick="submitForm();">CREATE</button>
     </div>
   </div>
 </form>
