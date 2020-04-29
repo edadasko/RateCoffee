@@ -187,6 +187,10 @@ header .header-search button {
   }
 }
 
+#logout-link {
+  display: none;
+}
+
 /* HEADER END */
 
 /* FOOTER */

@@ -97,6 +97,7 @@ function setInfo(coffee) {
 
 function startSettingInfo() {
   let coffeeId = getCoffeeIdFromParams();
+  console.log(coffeeId);
   coffeeStorage.withCoffee(coffeeId, setInfo);
 }
 

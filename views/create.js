@@ -1,6 +1,6 @@
 let create = `
 <link rel="stylesheet" href="styles/create-coffee.css">
-<form class="create-coffee-form" onsubmit="submitForm();">
+<form class="create-coffee-form">
   <div class="coffee-form-block">
     <div class="coffee-form-left">
       <div class="coffee-image">

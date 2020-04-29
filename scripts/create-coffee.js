@@ -95,7 +95,7 @@ function submitForm() {
   let name = document.getElementById('coffee-name').value;
   let value = document.getElementById('coffee-value').value;
   let description = document.getElementById('description-textarea').value;
-  let user = 'admin'; // TODO
+  let user = getCurrentUserEmail();
 
   let ingredientsList = [];
   let ingredientsSelects = document.getElementsByClassName('ingredients-select');

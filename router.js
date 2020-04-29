@@ -3,16 +3,20 @@ const routes = {
   '/create' : create,
   '/coffee-info' : coffeeInfo,
   '/login' : login,
-  '/register' : register
+  '/register' : register,
+  '/error' : error
 };
 
 const scripts = {
   '/' : "scripts/catalog.js",
   '/create' : "scripts/create-coffee.js",
   '/coffee-info' : "scripts/coffee-info.js",
-  '/login' : "",
-  '/register' : ""
+  '/login' : "scripts/auth.js",
+  '/register' : "scripts/auth.js",
+  '/error' : ""
 }
+
+const authRoutes = ['/create'];
 
 function getPathWithoutParams(pathname) {
   let indexOfSecondSlash = pathname.indexOf('?');
@@ -33,6 +37,12 @@ function addScript(pathname) {
 }
 
 function addContent(pathname) {
+  if (authRoutes.includes(pathname)) {
+    if (!firebase.auth().currentUser) {
+      onNavigate('/error');
+      return;
+    }
+  }
   pathname = getPathWithoutParams(pathname);
   rootDiv.innerHTML = routes[pathname];
   addScript(pathname);
