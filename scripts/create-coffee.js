@@ -66,6 +66,10 @@ function recalculateImage() {
     sumOfValues += +value.value;
   }
 
+  if (sumOfValues > 100) {
+    return;
+  }
+
   const regularValue = 350;
   let reductionFactor = coffeeValue / regularValue;
   if (reductionFactor > 1) {
@@ -97,9 +101,23 @@ function submitForm() {
   let description = document.getElementById('description-textarea').value;
   let user = getCurrentUserEmail();
 
+  if (name == "" || value == "" || description == "") {
+    return;
+  }
+
   let ingredientsList = [];
   let ingredientsSelects = document.getElementsByClassName('ingredients-select');
   let ingredientsValues = document.getElementsByClassName('ingredient-value-input');
+
+  let sumOfValues = 0;
+  for (let value of ingredientsValues) {
+    sumOfValues += +value.value;
+  }
+
+  if (sumOfValues < 95 || sumOfValues > 100) {
+    alert('Sum of ingredients should be сlose to 100');
+    return;
+  }
 
   for (let i = ingredientsSelects.length - 1; i >= 0; i--) {
     let name = ingredientsSelects[i].options[ingredientsSelects[i].selectedIndex].value;
@@ -107,7 +125,6 @@ function submitForm() {
     ingredientsList.push(new Ingredient(name, value));
   }
 
-  console.log(ingredientsList);
 
   let coffee = new Coffee(name, user, value, description, ingredientsList);
   coffeeStorage.addCoffee(coffee);

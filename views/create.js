@@ -1,6 +1,6 @@
 let create = `
 <link rel="stylesheet" href="styles/create-coffee.css">
-<form class="create-coffee-form">
+<form class="create-coffee-form" onsubmit="submitForm(); return false;">
   <div class="coffee-form-block">
     <div class="coffee-form-left">
       <div class="coffee-image">
@@ -34,7 +34,7 @@ let create = `
         <button id="add-ingredient-button" type="button" name="add-ingredient-button" onclick="addIngredient();"><i class="fas fa-plus"></i></button>
       </div>
       <textarea id="description-textarea" name="name" rows="3" placeholder="DESCRIPTION" required></textarea>
-      <button id="create-button" name="create-button" onclick="submitForm();">CREATE</button>
+      <button id="create-button" name="create-button">CREATE</button>
     </div>
   </div>
 </form>
