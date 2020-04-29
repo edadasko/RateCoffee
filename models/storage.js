@@ -1,32 +1,62 @@
+var config = {
+    apiKey: "AIzaSyDT0-ekaamyi8lkYzQ-nIT7xyGguuQW-R8",
+    authDomain: "ratecoffeespa.firebaseapp.com",
+    databaseURL: "https://ratecoffeespa.firebaseio.com"
+  };
+
 class Storage {
   constructor() {
-    this.coffees = [];
+    if (!firebase.apps.length) {
+       firebase.initializeApp(config);
+    }
+    this.database = firebase.database();
   }
 
   addCoffee(coffee) {
-    if (this.coffees.length == 0) {
-      coffee.id = 1;
+    let stringDate = coffee.createDate.toISOString().slice(0, 10);
+    console.log(stringDate);
+    this.database.ref('coffees/').push({
+      name: coffee.name,
+      description: coffee.description,
+      createDate: stringDate,
+      addedBy: coffee.addedBy,
+      value: coffee.value,
+      ingredients: coffee.ingredients,
+    })
+  }
+
+  withCatalog(operation) {
+    this.database.ref('coffees/').once('value').then(function(snapshot) {
+      var data = snapshot.val();
+      operation(data);
+    });
+  }
+
+  withCoffee(id, operation) {
+    this.database.ref('coffees/' + id).once('value').then(function(snapshot) {
+      var data = snapshot.val();
+      operation(data);
+    });
+  }
+
+  addMark(id) {
+  }
+
+  addComment(id) {
+  }
+
+  getRating(coffee) {
+    if (!coffee.hasOwnProperty('marks')) {
+      return 0;
     }
-    else {
-      coffee.id = this.coffees.reduce((prev, current) => (prev.id > current.id) ? prev : current).id + 1;
+
+    let marks = Object.values(marks);
+    if (marks.length == 0) {
+      return 0;
     }
-    this.coffees.push(coffee);
+    return marks.reduce((a, b) => (a + b)) / marks.length;
   }
 }
 
 
 let coffeeStorage = new Storage();
-
-let coffee1 = new Coffee('cappuccino', 'admin', 300,
-  "An espresso-based coffee drink that originated in Italy, and is traditionally prepared with steamed milk foam",
-  [
-    new Ingredient("milk-foam", 30),
-    new Ingredient("milk", 30),
-    new Ingredient("espresso", 30),
-])
-
-coffee1.addMark(5);
-coffee1.addMark(4);
-coffee1.addComment(new Comment('qwerty', 'Test Comment'));
-
-coffeeStorage.addCoffee(coffee1);

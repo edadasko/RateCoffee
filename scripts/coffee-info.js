@@ -1,8 +1,8 @@
-function getCoffeeFromParams() {
+function getCoffeeIdFromParams() {
   let queryString = window.location.search;
   let urlParams = new URLSearchParams(queryString);
   let coffeeId = urlParams.get('id');
-  return coffeeStorage.coffees.find(c => c.id == coffeeId);
+  return coffeeId;
 }
 
 function createCoffeeTitle(coffee) {
@@ -36,43 +36,42 @@ function populateIngredients(coffee) {
 }
 
 function populateComments(coffee) {
-  let commentsList = document.querySelector('.comments-list');
+  if (coffee.hasOwnProperty('comments')) {
+    let commentsList = document.querySelector('.comments-list');
+    for (let comment of Object.values(coffee.comments)) {
+      let commentItem = document.createElement("li");
+      commentItem.classList.add('ingredientItem');
 
-  for (let comment of coffee.comments) {
-    let commentItem = document.createElement("li");
-    commentItem.classList.add('ingredientItem');
+      let commentDiv = document.createElement("div");
+      commentDiv.classList.add('comment');
 
-    let commentDiv = document.createElement("div");
-    commentDiv.classList.add('comment');
+      let commentInfoDiv = document.createElement("div");
+      commentInfoDiv.classList.add('comment-info');
 
-    let commentInfoDiv = document.createElement("div");
-    commentInfoDiv.classList.add('comment-info');
+      let commentAuthor = document.createElement("p");
+      commentAuthor.classList.add('comment-author');
+      commentAuthor.appendChild(document.createTextNode(comment.author));
+      commentInfoDiv.appendChild(commentAuthor);
 
-    let commentAuthor = document.createElement("p");
-    commentAuthor.classList.add('comment-author');
-    commentAuthor.appendChild(document.createTextNode(comment.author));
-    commentInfoDiv.appendChild(commentAuthor);
+      let time = document.createElement("time");
+      time.setAttribute('datetime', comment.date);
+      time.appendChild(document.createTextNode((new Date(comment.date).toISOString().slice(0, 10))));
+      commentInfoDiv.appendChild(time);
 
-    let time = document.createElement("time");
-    time.setAttribute('datetime', comment.date);
-    time.appendChild(document.createTextNode((new Date(comment.date).toISOString().slice(0, 10))));
-    commentInfoDiv.appendChild(time);
+      let commentText = document.createElement("p");
+      commentText.classList.add('comment-text');
+      commentText.appendChild(document.createTextNode(comment.text));
 
-    let commentText = document.createElement("p");
-    commentText.classList.add('comment-text');
-    commentText.appendChild(document.createTextNode(comment.text));
+      commentDiv.appendChild(commentInfoDiv);
+      commentDiv.appendChild(commentText);
 
-    commentDiv.appendChild(commentInfoDiv);
-    commentDiv.appendChild(commentText);
-
-    commentItem.appendChild(commentDiv);
-    commentsList.prepend(commentItem);
+      commentItem.appendChild(commentDiv);
+      commentsList.prepend(commentItem);
+    }
   }
 }
 
-function setInfo() {
-  let coffee = getCoffeeFromParams();
-
+function setInfo(coffee) {
   let pictureInfoDiv = document.querySelector('.coffee-picture-info');
 
   pictureInfoDiv.prepend(createCoffeeTitle(coffee));
@@ -84,7 +83,7 @@ function setInfo() {
 
   populateIngredients(coffee);
 
-  let averageMark = document.createTextNode(coffee.getRating());
+  let averageMark = document.createTextNode(coffeeStorage.getRating(coffee));
   document.querySelector('.average-mark').appendChild(averageMark);
 
   let addedBy = document.createTextNode(coffee.addedBy);
@@ -96,4 +95,9 @@ function setInfo() {
   populateComments(coffee);
 }
 
-setInfo();
+function startSettingInfo() {
+  let coffeeId = getCoffeeIdFromParams();
+  coffeeStorage.withCoffee(coffeeId, setInfo);
+}
+
+startSettingInfo();
