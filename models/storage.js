@@ -13,37 +13,35 @@ class Storage {
   }
 
   addCoffee(coffee) {
-    let stringDate = coffee.createDate.toISOString().slice(0, 10);
-    console.log(stringDate);
     this.database.ref('coffees/').push({
       name: coffee.name,
       description: coffee.description,
-      createDate: stringDate,
+      createDate: coffee.createDate.toISOString().slice(0, 10),
       addedBy: coffee.addedBy,
       value: coffee.value,
       ingredients: coffee.ingredients,
     })
   }
 
-  withCatalog(operation) {
-    this.database.ref('coffees/').once('value').then(function(snapshot) {
-      var data = snapshot.val();
-      operation(data);
-    });
+  async getCatalog() {
+    return (await this.database.ref('coffees/').once('value')).val();
   }
 
-  withCoffee(id, operation) {
-    this.database.ref('coffees/' + id).once('value').then(function(snapshot) {
-      var data = snapshot.val();
-      operation(data);
-    });
+  async getCoffee(id) {
+    return (await this.database.ref('coffees/' + id).once('value')).val();
   }
 
   addMark(coffeeId, userId, mark) {
     this.database.ref(`coffees/${coffeeId}/marks/${userId}`).set(+mark);
   }
 
-  addComment(id) {
+  addComment(coffeeId, comment) {
+    this.database.ref(`coffees/${coffeeId}/comments/`).push({
+        author: comment.author,
+        text: comment.text,
+        date: comment.date.toISOString().slice(0, 10)
+      }
+    );
   }
 
   getRating(coffee) {

@@ -152,7 +152,7 @@ main {
   font-size: 1em;
 }
 
-.comments-section input[type="submit"] {
+#create-button {
   display: block;
   margin: 0 0 0 auto;
   border: none;
@@ -162,7 +162,7 @@ main {
   background-color: white;
 }
 
-.comment-list-item{
+.comment-list-item {
   width: 100%;
   margin-bottom: 20px;
 }

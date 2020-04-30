@@ -35,9 +35,10 @@ function populateIngredients(coffee) {
 function populateComments(coffee) {
   if (coffee.hasOwnProperty('comments')) {
     let commentsList = document.querySelector('.comments-list');
+    commentsList.innerHTML = "";
     for (let comment of Object.values(coffee.comments)) {
       let commentItem = document.createElement("li");
-      commentItem.classList.add('ingredientItem');
+      commentItem.classList.add('comment-list-item');
 
       let commentDiv = document.createElement("div");
       commentDiv.classList.add('comment');
@@ -52,7 +53,7 @@ function populateComments(coffee) {
 
       let time = document.createElement("time");
       time.setAttribute('datetime', comment.date);
-      time.textContent = (new Date(comment.date)).toISOString().slice(0, 10);
+      time.textContent = comment.date;
       commentInfoDiv.appendChild(time);
 
       let commentText = document.createElement("p");
@@ -86,37 +87,63 @@ function setInfo(coffee) {
 
 async function startSettingInfo() {
   let coffeeId = getCoffeeIdFromParams();
-  console.log(coffeeId);
-  coffeeStorage.withCoffee(coffeeId, setInfo);
+  let coffee = await coffeeStorage.getCoffee(coffeeId);
+  if (coffee == null) {
+    onNavigate('/error');
+    return;
+  }
+  setInfo(coffee);
   if (await authService.isAuthenticated()) {
     checkMark(authService.user, getCoffeeIdFromParams());
   }
 }
 
-function checkMark(user, coffeeId) {
-  coffeeStorage.withCoffee(coffeeId, function(coffee) {
-    if ('marks' in coffee) {
-      let marks = coffee.marks;
-      if (user.uid in marks) {
-        let input = document.getElementsByClassName('star-rating-input');
-        input[5 - marks[user.uid]].checked = true;
-      }
+async function checkMark(user, coffeeId) {
+  let coffee = await coffeeStorage.getCoffee(coffeeId);
+  if ('marks' in coffee) {
+    let marks = coffee.marks;
+    if (user.uid in marks) {
+      let input = document.getElementsByClassName('star-rating-input');
+      input[5 - marks[user.uid]].checked = true;
     }
-  });
+  }
 }
 
-function setMark(button) {
-  let user = firebase.auth().currentUser;
-  if (user == null) {
+async function setMark(button) {
+  let isAuth = await authService.isAuthenticated();
+  if (!isAuth) {
     alert('Log in for rate coffee.');
     return;
   }
+  let user = authService.user;
+
   let id = user.uid;
   let mark = button.value;
   let coffeeId = getCoffeeIdFromParams();
   coffeeStorage.addMark(coffeeId, id, mark);
-  coffeeStorage.withCoffee(coffeeId, function(coffee) {
-    document.querySelector('.average-mark').textContent = coffeeStorage.getRating(coffee).toFixed(2);
-  })
+  let coffee = await coffeeStorage.getCoffee(coffeeId);
+  document.querySelector('.average-mark').textContent = coffeeStorage.getRating(coffee).toFixed(2);
 }
+
+async function leaveComment() {
+  let isAuth = await authService.isAuthenticated();
+  if (!isAuth) {
+    alert('Log in for leave comments.');
+    return;
+  }
+  let user = authService.user;
+  let input = document.getElementById('comment-input');
+  let text = input.value;
+
+  if (text.trim() == "") {
+    return;
+  }
+  input.value = "";
+  let comment = new Comment(user.email, text);
+  let coffeeId = getCoffeeIdFromParams();
+  coffeeStorage.addComment(coffeeId, comment);
+  let coffee = await coffeeStorage.getCoffee(coffeeId);
+  populateComments(coffee);
+}
+
 startSettingInfo();

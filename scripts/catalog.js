@@ -1,4 +1,5 @@
-function populateCatalog(catalog) {
+async function populateCatalog() {
+  let catalog = await coffeeStorage.getCatalog();
   let catalogDiv = document.getElementById('catalog-grid');
   for (let coffeeId in catalog) {
     let coffeeNode = document.createElement("a");
@@ -20,7 +21,7 @@ function populateCatalog(catalog) {
     let ratingDiv = createRatingDiv(catalog[coffeeId]);
     coffeeItemDiv.appendChild(ratingDiv);
     coffeeNode.appendChild(coffeeItemDiv);
-    catalogDiv.appendChild(coffeeNode);
+    catalogDiv.prepend(coffeeNode);
   }
 }
 
@@ -39,4 +40,4 @@ function createRatingDiv(coffee) {
   return ratingDiv;
 }
 
-coffeeStorage.withCatalog(populateCatalog);
+populateCatalog();

@@ -30,9 +30,9 @@ let coffeeInfo = `
   </p>
 </article>
 <section class="comments-section">
-  <form class="comment-form" action="#" method="post">
-    <textarea name="comment" rows="3" placeholder="LEAVE YOUR COMMENT HERE..."></textarea>
-    <input type="submit" name="send" value="SEND">
+  <form class="comment-form" onsubmit="leaveComment(); return false;">
+    <textarea id="comment-input" name="comment" rows="3" placeholder="LEAVE YOUR COMMENT HERE..."></textarea>
+    <button id="create-button">SEND</button>
   </form>
   <ul class="comments-list">
   </ul>

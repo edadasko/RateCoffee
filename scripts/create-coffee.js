@@ -53,9 +53,6 @@ function recalculateImage() {
   }
 
   let coffeeValue = document.getElementById('coffee-value').value;
-  if (coffeeValue == "") {
-    coffeeValue = 350;
-  }
 
   let ingredientsSelects = document.getElementsByClassName('ingredients-select');
   let ingredientsValues = document.getElementsByClassName('ingredient-value-input');
