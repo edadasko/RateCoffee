@@ -2,7 +2,7 @@ function submitLogInForm() {
   let email = document.getElementById('login-input').value;
   let password = document.getElementById('password-input').value;
 
-  logIn(email, password);
+  authService.logIn(email, password);
   return false;
 }
 
@@ -10,6 +10,6 @@ function submitSignUpForm() {
   let email = document.getElementById('login-input').value;
   let password = document.getElementById('password-input').value;
 
-  signUp(email, password);
+  authService.signUp(email, password);
   return false;
 }

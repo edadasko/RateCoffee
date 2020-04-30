@@ -99,7 +99,7 @@ function submitForm() {
   let name = document.getElementById('coffee-name').value;
   let value = document.getElementById('coffee-value').value;
   let description = document.getElementById('description-textarea').value;
-  let user = getCurrentUserEmail();
+  let user = authService.user.email;
 
   if (name == "" || value == "" || description == "") {
     return;

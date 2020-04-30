@@ -59,5 +59,4 @@ class Storage {
   }
 }
 
-
 let coffeeStorage = new Storage();

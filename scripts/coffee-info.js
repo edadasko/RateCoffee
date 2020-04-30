@@ -84,19 +84,16 @@ function setInfo(coffee) {
   populateComments(coffee);
 }
 
-function startSettingInfo() {
+async function startSettingInfo() {
   let coffeeId = getCoffeeIdFromParams();
   console.log(coffeeId);
   coffeeStorage.withCoffee(coffeeId, setInfo);
-  checkMark(coffeeId);
+  if (await authService.isAuthenticated()) {
+    checkMark(authService.user, getCoffeeIdFromParams());
+  }
 }
 
-function checkMark(coffeeId) {
-  let user = firebase.auth().currentUser;
-  if (user == null) {
-    return;
-  }
-
+function checkMark(user, coffeeId) {
   coffeeStorage.withCoffee(coffeeId, function(coffee) {
     if ('marks' in coffee) {
       let marks = coffee.marks;

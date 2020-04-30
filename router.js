@@ -36,9 +36,11 @@ function addScript(pathname) {
   }
 }
 
-function addContent(pathname) {
+async function addContent(pathname) {
+  let isAuth = await authService.isAuthenticated();
+  console.log('add content: ' + isAuth);
   if (authRoutes.includes(pathname)) {
-    if (!firebase.auth().currentUser) {
+    if (!isAuth) {
       onNavigate('/error');
       return;
     }

@@ -35,7 +35,7 @@
             <li id="create-link"><a href="#" onclick="onNavigate('/create'); return false;">CREATE</a></li>
             <li id="signup-link"><a href="#" onclick="onNavigate('/register'); return false;">SIGN UP</a></li>
             <li id="login-link"><a href="#" onclick="onNavigate('/login'); return false;">LOG IN</a></li>
-            <li id="logout-link"><a href="#" onclick="logOut(); return false;">LOG OUT</a></li>
+            <li id="logout-link"><a href="#" onclick="authService.logOut(); return false;">LOG OUT</a></li>
           </ul>
         </nav>
       </div>
@@ -51,8 +51,8 @@
     </header>
     <main id="root">
     </main>
+    <script src="authService.js"></script>
     <script src="router.js"></script>
-    <script src="auth.js"></script>
     <footer>
       <p class="copyright">Copyright @ 2020. Created by Eduard Adasko </p>
       <div class="contacts">
