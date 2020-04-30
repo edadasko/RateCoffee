@@ -14,8 +14,7 @@ function populateCatalog(catalog) {
     let coffeeName = document.createElement("p");
     coffeeName.classList.add('coffee-title');
 
-    let nameText = document.createTextNode(catalog[coffeeId].name.toUpperCase());
-    coffeeName.appendChild(nameText);
+    coffeeName.textContent = catalog[coffeeId].name.toUpperCase();
     coffeeItemDiv.appendChild(coffeeName);
 
     let ratingDiv = createRatingDiv(catalog[coffeeId]);

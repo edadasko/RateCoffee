@@ -39,18 +39,19 @@ class Storage {
     });
   }
 
-  addMark(id) {
+  addMark(coffeeId, userId, mark) {
+    this.database.ref(`coffees/${coffeeId}/marks/${userId}`).set(+mark);
   }
 
   addComment(id) {
   }
 
   getRating(coffee) {
-    if (!coffee.hasOwnProperty('marks')) {
+    if (!('marks' in coffee)) {
       return 0;
     }
 
-    let marks = Object.values(marks);
+    let marks = Object.values(coffee.marks);
     if (marks.length == 0) {
       return 0;
     }
