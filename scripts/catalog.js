@@ -1,7 +1,4 @@
 function filterCatalog(filterOption, sortOption, catalog) {
-  console.log(filterOption);
-  console.log(sortOption);
-
   let catalogArray = [];
 
   for (let coffeeId in catalog) {
