@@ -68,6 +68,11 @@ function recalculateImage() {
   }
 
   const regularValue = 350;
+
+  if (coffeeValue = "") {
+    coffeeValue = regularValue;
+  }
+
   let reductionFactor = coffeeValue / regularValue;
   if (reductionFactor > 1) {
     reductionFactor = 1;

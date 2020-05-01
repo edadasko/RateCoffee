@@ -45,18 +45,18 @@
   display: block;
 }
 
-.sort-list {
-  position: absolute;
-  padding-top: 15px;
-  text-align: right;
-  left: -160px;
-  z-index: 100;
-}
-
 .sort {
   position: relative;
   display: inline-block;
   margin-right: 60px;
+}
+
+.sort-list {
+  position: absolute;
+  padding-top: 15px;
+  text-align: right;
+  right: -7px;
+  z-index: 100;
 }
 
 .sort-list li a {
@@ -191,9 +191,13 @@
     }
 
     .sort-list {
-      left: -300px;
+      right: -25px;
     }
 
+    .filter-list {
+      left: -20px;
+    }
+    
     .sort-section a {
       display: block;
       height: 100%;

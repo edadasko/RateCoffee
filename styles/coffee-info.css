@@ -289,7 +289,7 @@ main {
       font-size: 2.5em;
     }
 
-    .comments-section input[type="submit"] {
+    #create-button {
       padding: 10px 20px;
       font-size: 2.5em;
     }

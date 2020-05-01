@@ -1,10 +1,3 @@
-function getCoffeeIdFromParams() {
-  let queryString = window.location.search;
-  let urlParams = new URLSearchParams(queryString);
-  let coffeeId = urlParams.get('id');
-  return coffeeId;
-}
-
 function createCoffeeTitle(coffee) {
   let coffeeName = document.createElement("p");
   coffeeName.classList.add('coffee-title');
@@ -86,7 +79,7 @@ function setInfo(coffee) {
 }
 
 async function startSettingInfo() {
-  let coffeeId = getCoffeeIdFromParams();
+  let coffeeId = getURLParam('id');
   let coffee = await coffeeStorage.getCoffee(coffeeId);
   if (coffee == null) {
     onNavigate('/error');
@@ -94,7 +87,7 @@ async function startSettingInfo() {
   }
   setInfo(coffee);
   if (await authService.isAuthenticated()) {
-    checkMark(authService.user, getCoffeeIdFromParams());
+    checkMark(authService.user, getURLParam('id'));
   }
 }
 
@@ -119,7 +112,7 @@ async function setMark(button) {
 
   let id = user.uid;
   let mark = button.value;
-  let coffeeId = getCoffeeIdFromParams();
+  let coffeeId = getURLParam('id');
   coffeeStorage.addMark(coffeeId, id, mark);
   let coffee = await coffeeStorage.getCoffee(coffeeId);
   document.querySelector('.average-mark').textContent = coffeeStorage.getRating(coffee).toFixed(2);
@@ -140,7 +133,7 @@ async function leaveComment() {
   }
   input.value = "";
   let comment = new Comment(user.email, text);
-  let coffeeId = getCoffeeIdFromParams();
+  let coffeeId = getURLParam('id');
   coffeeStorage.addComment(coffeeId, comment);
   let coffee = await coffeeStorage.getCoffee(coffeeId);
   populateComments(coffee);

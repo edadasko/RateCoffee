@@ -1,5 +1,6 @@
 const routes = {
   '/' : catalog,
+  '/catalog' : catalog,
   '/create' : create,
   '/coffee-info' : coffeeInfo,
   '/login' : login,
@@ -9,6 +10,7 @@ const routes = {
 
 const scripts = {
   '/' : "scripts/catalog.js",
+  '/catalog' : "scripts/catalog.js",
   '/create' : "scripts/create-coffee.js",
   '/coffee-info' : "scripts/coffee-info.js",
   '/login' : "scripts/auth.js",
