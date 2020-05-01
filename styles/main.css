@@ -262,8 +262,7 @@ footer .contacts .mail-link:hover {
 
 /* FOR SMARTPHONES*/
 @media only screen
-    and (max-device-width : 500px)
-    and (orientation: portrait) {
+    and (max-device-width : 500px) {
 
     main {
       padding-top: 130px;

@@ -93,6 +93,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
   padding: 10px;
 }
 
@@ -135,13 +136,14 @@
 .coffee-title {
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
   font-size: 1.2em;
 }
 
 /* FOR SMARTPHONES */
 @media only screen
-    and (max-device-width : 500px)
-    and (orientation: portrait) {
+    and (max-device-width : 500px){
 
     .catalog-grid {
       grid-template-columns: repeat(auto-fit, 600px);
@@ -181,7 +183,6 @@
     .filter-list, .sort-list {
       position: absolute;
       padding-top: 31px;
-      left: -25px;
       z-index: 100;
     }
 
@@ -197,7 +198,7 @@
     .filter-list {
       left: -20px;
     }
-    
+
     .sort-section a {
       display: block;
       height: 100%;

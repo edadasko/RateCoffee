@@ -22,6 +22,7 @@ main {
   align-items: center;
   flex-direction: column;
   box-sizing: border-box;
+  text-align: center;
   padding: 10px;
 }
 
@@ -48,6 +49,8 @@ main {
 }
 
 .coffee-title {
+  display: block;
+  width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 1.5em;
@@ -121,6 +124,8 @@ main {
 }
 
 .bottom-details p {
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-top: 5px;
 }
 /* COFFEE DETAILS END*/
@@ -182,22 +187,23 @@ main {
 }
 
 .comment-info {
-  width: 30%;
+  width: 40%;
   box-sizing: border-box;
 }
 
 .comment-info p {
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-bottom: 5px;
 }
 
 .comment-text {
-  width: 70%;
+  width: 60%;
   box-sizing: border-box;
 }
 
 @media only screen
-    and (max-device-width : 500px)
-    and (orientation: portrait) {
+    and (max-device-width : 500px) {
 
     :root {
       --main-border-radius: 50px;
@@ -242,6 +248,7 @@ main {
     }
 
     .coffee-title {
+      max-width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
       font-size: 4em;
@@ -304,7 +311,7 @@ main {
     }
 
     .comment-info {
-      width: 40%;
+      width: 50%;
       box-sizing: border-box;
     }
 
@@ -313,7 +320,7 @@ main {
     }
 
     .comment-text {
-      width: 60%;
+      width: 50%;
       box-sizing: border-box;
     }
 }

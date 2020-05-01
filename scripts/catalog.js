@@ -30,8 +30,10 @@ function filterCatalog(filterOption, sortOption, catalog) {
       break;
     case 'rating':
       catalogArray.sort((a, b) => coffeeStorage.getRating(b.value) - coffeeStorage.getRating(a.value));
+      break;
     case 'date':
       catalogArray.sort((a, b) => Date.parse(b.value.createDate) - Date.parse(a.value.createDate));
+      break;
   }
 
   return catalogArray;

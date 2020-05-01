@@ -149,8 +149,7 @@ label {
 }
 
 @media only screen
-    and (max-device-width : 500px)
-    and (orientation: portrait) {
+    and (max-device-width : 500px) {
 
     :root {
       --main-border-radius: 50px;
@@ -239,7 +238,7 @@ label {
       height: 285px;
       width: 219px;
     }
-    
+
     #add-ingredient-button {
       width: 100px;
       height: 100px;

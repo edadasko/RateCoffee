@@ -6,7 +6,6 @@ function getURLParam(param) {
 }
 
 async function searchCoffee() {
-  console.log('ama here');
   let input = document.getElementById("search-input");
   let text = input.value.trim().toLowerCase();
   input.value = "";

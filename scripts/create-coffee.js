@@ -69,7 +69,7 @@ function recalculateImage() {
 
   const regularValue = 350;
 
-  if (coffeeValue = "") {
+  if (coffeeValue == "") {
     coffeeValue = regularValue;
   }
 
@@ -114,6 +114,11 @@ function submitForm() {
   let sumOfValues = 0;
   for (let value of ingredientsValues) {
     sumOfValues += +value.value;
+  }
+
+  if (value < 10) {
+    alert('Standard value should be more than 10 ml.');
+    return;
   }
 
   if (sumOfValues < 95 || sumOfValues > 100) {

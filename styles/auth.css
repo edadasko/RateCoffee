@@ -36,8 +36,7 @@ main form button {
 }
 
 @media only screen
-    and (max-device-width : 500px)
-    and (orientation: portrait) {
+    and (max-device-width : 500px) {
 
       main {
         width: 70%;
