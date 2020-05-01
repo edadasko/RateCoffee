@@ -97,14 +97,33 @@ function recalculateImage() {
   }
 }
 
-function submitForm() {
+async function submitForm() {
   let name = document.getElementById('coffee-name').value;
   let value = document.getElementById('coffee-value').value;
   let description = document.getElementById('description-textarea').value;
   let user = authService.user.email;
+  name = name.trim().toLowerCase();
 
   if (name == "" || value == "" || description == "") {
     return;
+  }
+
+  if (value < 10 || value > 1000) {
+    alert('Standard value should be between 10 and 1000 ml.');
+    return;
+  }
+
+  if (name.length < 3) {
+    alert('Name length should be at least 3 symbols.');
+    return;
+  }
+
+  let coffees = await coffeeStorage.getCatalog();
+  for (let id in coffees) {
+    if (coffees[id].name == name) {
+      alert ('Name already exists.');
+      return
+    }
   }
 
   let ingredientsList = [];
@@ -114,11 +133,6 @@ function submitForm() {
   let sumOfValues = 0;
   for (let value of ingredientsValues) {
     sumOfValues += +value.value;
-  }
-
-  if (value < 10) {
-    alert('Standard value should be more than 10 ml.');
-    return;
   }
 
   if (sumOfValues < 95 || sumOfValues > 100) {
@@ -132,8 +146,7 @@ function submitForm() {
     ingredientsList.push(new Ingredient(name, value));
   }
 
-
-  let coffee = new Coffee(name, user, value, description, ingredientsList);
+  let coffee = new Coffee(name.trim().toLowerCase(), user, value, description, ingredientsList);
   coffeeStorage.addCoffee(coffee);
   onNavigate('/');
 }

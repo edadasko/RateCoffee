@@ -28,9 +28,9 @@ class AuthService {
 
   logIn(email, password) {
     firebase.auth().signInWithEmailAndPassword(email, password).then(function() {
-       onNavigate('/');
+      onNavigate('/');
     }).catch(function(error) {
-       onNavigate('/error');
+      alert('Email or password is wrong. Try again.')
     });
   }
 
@@ -38,7 +38,7 @@ class AuthService {
     firebase.auth().createUserWithEmailAndPassword(email, password).then(function() {
       onNavigate('/');
     }).catch(function(error) {
-      onNavigate('/error');
+      alert('Email is wrong or has already been used.')
     });
   }
 
