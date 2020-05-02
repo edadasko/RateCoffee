@@ -115,6 +115,7 @@ main {
   border-radius: var(--main-border-radius);
   padding: 20px 50px;
   text-align: center;
+  word-wrap: break-word;
   font-size: 1.2em;
 }
 
@@ -199,6 +200,7 @@ main {
 
 .comment-text {
   width: 60%;
+  word-wrap: break-word;
   box-sizing: border-box;
 }
 
