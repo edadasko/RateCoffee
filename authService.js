@@ -1,15 +1,3 @@
-const initializeAuth = new Promise(resolve => {
-  firebase.auth().onAuthStateChanged(user => {
-    authService.setUser(user);
-    if (user) {
-      hideAuthButtons();
-    } else {
-      displayAuthButtons();
-    }
-    resolve();
-  })
-})
-
 class AuthService {
   constructor() {
     this.user = null;
@@ -45,12 +33,21 @@ class AuthService {
   logOut() {
     firebase.auth().signOut().then(function() {
       onNavigate('/');
-    }).catch(function(error) {
     });
   }
 }
 
-let authService = new AuthService();
+const initializeAuth = new Promise(resolve => {
+  firebase.auth().onAuthStateChanged(user => {
+    authService.setUser(user);
+    if (user) {
+      hideAuthButtons();
+    } else {
+      displayAuthButtons();
+    }
+    resolve();
+  })
+})
 
 function displayAuthButtons() {
   document.getElementById('signup-link').style.display = 'block';
@@ -65,3 +62,5 @@ function hideAuthButtons() {
   document.getElementById('logout-link').style.display = 'block';
   document.getElementById('create-link').style.display = 'block';
 }
+
+let authService = new AuthService();

@@ -1,4 +1,4 @@
-let create = `
+const create = `
 <link rel="stylesheet" href="styles/create-coffee.css">
 <form class="create-coffee-form" onsubmit="submitForm(); return false;">
   <div class="coffee-form-block">

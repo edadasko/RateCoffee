@@ -5,7 +5,7 @@ const routes = {
   '/coffee-info' : coffeeInfo,
   '/login' : login,
   '/register' : register,
-  '/error' : error
+  '/404' : notFound
 };
 
 const scripts = {
@@ -14,42 +14,44 @@ const scripts = {
   '/create' : "scripts/create-coffee.js",
   '/coffee-info' : "scripts/coffee-info.js",
   '/login' : "scripts/auth.js",
-  '/register' : "scripts/auth.js",
-  '/error' : ""
+  '/register' : "scripts/auth.js"
 }
 
 const authRoutes = ['/create'];
 
 function getPathWithoutParams(pathname) {
-  let indexOfSecondSlash = pathname.indexOf('?');
-  if (indexOfSecondSlash != -1) {
-    return pathname.slice(0, indexOfSecondSlash);
+  let startParamsIndex = pathname.indexOf('?');
+  if (startParamsIndex != -1) {
+    return pathname.slice(0, startParamsIndex);
   }
   return pathname;
 }
 
 function addScript(pathname) {
-  pathname = getPathWithoutParams(pathname);
   var scriptSrc = scripts[pathname];
-  if (scriptSrc != "") {
-    var script = document.createElement("script");
-    script.src = scriptSrc;
-    rootDiv.appendChild(script);
-  }
+  var script = document.createElement("script");
+  script.src = scriptSrc;
+  rootDiv.appendChild(script);
 }
 
 async function addContent(pathname) {
-  let isAuth = await authService.isAuthenticated();
-  console.log('add content: ' + isAuth);
   if (authRoutes.includes(pathname)) {
+    let isAuth = await authService.isAuthenticated();
     if (!isAuth) {
-      onNavigate('/error');
+      onNavigate('/404');
       return;
     }
   }
   pathname = getPathWithoutParams(pathname);
-  rootDiv.innerHTML = routes[pathname];
-  addScript(pathname);
+  if (pathname in routes) {
+    rootDiv.innerHTML = routes[pathname];
+    if (pathname in scripts) {
+      addScript(pathname);
+    }
+  }
+  else {
+    onNavigate('/404');
+  }
 }
 
 const onNavigate = (pathname) => {

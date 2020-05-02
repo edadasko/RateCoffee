@@ -1,3 +1,34 @@
+async function populateCatalog() {
+  let filterOption = getURLParam('filter');
+  let sortOption = getURLParam('sort');
+  setFilterTitles(filterOption, sortOption);
+  let catalog = await coffeeStorage.getCatalog();
+  catalog = filterCatalog(filterOption, sortOption, catalog);
+  let catalogDiv = document.getElementById('catalog-grid');
+  for (let coffee of catalog) {
+    let coffeeNode = document.createElement("a");
+    coffeeNode.setAttribute('href', '#');
+    coffeeNode.setAttribute('onclick', `onNavigate('/coffee-info?id=${coffee.id}'); return false;`);
+
+    let coffeeItemDiv = document.createElement("div");
+    coffeeItemDiv.classList.add('catalog-item');
+
+    let coffeeImageDiv = createCoffeeImageDiv(coffee.value);
+    coffeeItemDiv.appendChild(coffeeImageDiv);
+
+    let coffeeName = document.createElement("p");
+    coffeeName.classList.add('coffee-title');
+
+    coffeeName.textContent = coffee.value.name.toUpperCase();
+    coffeeItemDiv.appendChild(coffeeName);
+
+    let ratingDiv = createRatingDiv(coffee.value);
+    coffeeItemDiv.appendChild(ratingDiv);
+    coffeeNode.appendChild(coffeeItemDiv);
+    catalogDiv.append(coffeeNode);
+  }
+}
+
 function filterCatalog(filterOption, sortOption, catalog) {
   let catalogArray = [];
 
@@ -11,7 +42,7 @@ function filterCatalog(filterOption, sortOption, catalog) {
   }
 
   if (filterOption == 'top') {
-    catalogArray.sort((a, b) => coffeeStorage.getRating(b.value) - coffeeStorage.getRating(a.value));
+    catalogArray.sort((a, b) => getCoffeeRating(b.value) - getCoffeeRating(a.value));
     catalogArray = catalogArray.slice(0, 10);
   }
 
@@ -29,7 +60,7 @@ function filterCatalog(filterOption, sortOption, catalog) {
       });
       break;
     case 'rating':
-      catalogArray.sort((a, b) => coffeeStorage.getRating(b.value) - coffeeStorage.getRating(a.value));
+      catalogArray.sort((a, b) => getCoffeeRating(b.value) - getCoffeeRating(a.value));
       break;
     case 'date':
       catalogArray.sort((a, b) => Date.parse(b.value.createDate) - Date.parse(a.value.createDate));
@@ -79,37 +110,6 @@ function changeSort(sortOption) {
   onNavigate(url);
 }
 
-async function populateCatalog() {
-  let filterOption = getURLParam('filter');
-  let sortOption = getURLParam('sort');
-  setFilterTitles(filterOption, sortOption);
-  let catalog = await coffeeStorage.getCatalog();
-  catalog = filterCatalog(filterOption, sortOption, catalog);
-  let catalogDiv = document.getElementById('catalog-grid');
-  for (let coffee of catalog) {
-    let coffeeNode = document.createElement("a");
-    coffeeNode.setAttribute('href', '#');
-    coffeeNode.setAttribute('onclick', `onNavigate('/coffee-info?id=${coffee.id}'); return false;`);
-
-    let coffeeItemDiv = document.createElement("div");
-    coffeeItemDiv.classList.add('catalog-item');
-
-    let coffeeImageDiv = createCoffeeImageDiv(coffee.value);
-    coffeeItemDiv.appendChild(coffeeImageDiv);
-
-    let coffeeName = document.createElement("p");
-    coffeeName.classList.add('coffee-title');
-
-    coffeeName.textContent = coffee.value.name.toUpperCase();
-    coffeeItemDiv.appendChild(coffeeName);
-
-    let ratingDiv = createRatingDiv(coffee.value);
-    coffeeItemDiv.appendChild(ratingDiv);
-    coffeeNode.appendChild(coffeeItemDiv);
-    catalogDiv.append(coffeeNode);
-  }
-}
-
 function createRatingDiv(coffee) {
   let ratingDiv = document.createElement("div");
   ratingDiv.classList.add('grid-item-rating');
@@ -117,7 +117,7 @@ function createRatingDiv(coffee) {
     let starSpan = document.createElement("span");
     starSpan.classList.add("fa");
     starSpan.classList.add("fa-star");
-    if (coffeeStorage.getRating(coffee) >= i + 0.5) {
+    if (getCoffeeRating(coffee) >= i + 0.5) {
       starSpan.classList.add("checked");
     }
     ratingDiv.appendChild(starSpan);

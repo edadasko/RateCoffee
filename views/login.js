@@ -1,4 +1,4 @@
-let login = `
+const login = `
 <link rel="stylesheet" href="styles/auth.css">
 <section class="login-section">
   <form class="login-form" onsubmit="submitLogInForm(); return false;">

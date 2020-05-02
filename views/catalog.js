@@ -1,4 +1,4 @@
-let catalog = `
+const catalog = `
 <link rel="stylesheet" href="styles/catalog.css">
 <div class="sort-section">
   <div class="filter">

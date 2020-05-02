@@ -1,4 +1,4 @@
-let register = `
+const register = `
 <link rel="stylesheet" href="styles/auth.css">
 <section class="register-section">
   <form class="register-form" onsubmit="submitSignUpForm(); return false;">

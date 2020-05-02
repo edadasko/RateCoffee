@@ -29,3 +29,16 @@ async function searchCoffee() {
   }
   alert("Sorry, we don't have such coffee yet.");
 }
+
+
+function getCoffeeRating(coffee) {
+  if (!('marks' in coffee)) {
+    return 0;
+  }
+
+  let marks = Object.values(coffee.marks);
+  if (marks.length == 0) {
+    return 0;
+  }
+  return marks.reduce((a, b) => (a + b)) / marks.length;
+}

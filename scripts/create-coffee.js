@@ -17,15 +17,15 @@ function addIngredient() {
      <button class="remove-ingredient-button" type="button" name="remove-ingredient-button" onclick="removeIngredient();"><i class="fas fa-minus"></i></button>
   </div>
   `
-
+  const maxIngredientsCount = 5;
   let items = document.getElementsByClassName('ingredient-select-list-item');
 
-  if (items.length == 4) {
+  if (items.length == maxIngredientsCount - 1) {
     let addButton = document.getElementById('add-ingredient-button');
     addButton.style.display = 'none';
   }
 
-  if (items.length < 5) {
+  if (items.length < maxIngredientsCount) {
     let ingredientsList = document.querySelector('.ingredients-select-list');
     let ingredientItem = document.createElement('li');
     ingredientItem.classList.add('ingredient-select-list-item');
@@ -37,7 +37,8 @@ function addIngredient() {
 function removeIngredient() {
   let items = document.getElementsByClassName('ingredient-select-list-item');
 
-  if (items.length == 5) {
+  const maxIngredientsCount = 5;
+  if (items.length == maxIngredientsCount) {
     let addButton = document.getElementById('add-ingredient-button');
     addButton.style.display = 'block';
   }
@@ -63,7 +64,8 @@ function recalculateImage() {
     sumOfValues += +value.value;
   }
 
-  if (sumOfValues > 100) {
+  const maxSumOfValues = 100;
+  if (sumOfValues > maxSumOfValues) {
     return;
   }
 
@@ -104,26 +106,9 @@ async function submitForm() {
   let user = authService.user.email;
   name = name.trim().toLowerCase();
 
-  if (name == "" || value == "" || description == "") {
+  let isInputValid = validateInput(name, value, description);
+  if (!isInputValid) {
     return;
-  }
-
-  if (value < 10 || value > 1000) {
-    alert('Standard value should be between 10 and 1000 ml.');
-    return;
-  }
-
-  if (name.length < 3) {
-    alert('Name length should be at least 3 symbols.');
-    return;
-  }
-
-  let coffees = await coffeeStorage.getCatalog();
-  for (let id in coffees) {
-    if (coffees[id].name == name) {
-      alert ('Name already exists.');
-      return
-    }
   }
 
   let ingredientsList = [];
@@ -149,4 +134,29 @@ async function submitForm() {
   let coffee = new Coffee(name.trim().toLowerCase(), user, value, description, ingredientsList);
   coffeeStorage.addCoffee(coffee);
   onNavigate('/');
+}
+
+async function validateInput(name, value, description) {
+  if (name == "" || value == "" || description == "") {
+    return false;
+  }
+
+  if (value < 10 || value > 1000) {
+    alert('Standard value should be between 10 and 1000 ml.');
+    return false;
+  }
+
+  if (name.length < 3) {
+    alert('Name length should be at least 3 symbols.');
+    return false;
+  }
+
+  let coffees = await coffeeStorage.getCatalog();
+  for (let id in coffees) {
+    if (coffees[id].name == name) {
+      alert ('Name already exists.');
+      return false;
+    }
+  }
+  return true;
 }

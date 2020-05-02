@@ -1,8 +1,30 @@
-function createCoffeeTitle(coffee) {
-  let coffeeName = document.createElement("p");
-  coffeeName.classList.add('coffee-title');
-  coffeeName.textContent = coffee.name.toUpperCase();
-  return coffeeName;
+async function startSettingInfo() {
+  let coffeeId = getURLParam('id');
+  let coffee = await coffeeStorage.getCoffee(coffeeId);
+  if (coffee == null) {
+    onNavigate('/404');
+    return;
+  }
+  setInfo(coffee);
+  if (await authService.isAuthenticated()) {
+    checkMark(authService.user, getURLParam('id'));
+  }
+}
+
+function setInfo(coffee) {
+  let pictureInfoDiv = document.querySelector('.coffee-picture-info');
+
+  pictureInfoDiv.prepend(createCoffeeTitle(coffee));
+  pictureInfoDiv.prepend(createCoffeeImageDiv(coffee));
+
+  populateIngredients(coffee);
+
+  document.querySelector('.coffee-value').textContent = coffee.value;
+  document.querySelector('.average-mark').textContent = getCoffeeRating(coffee).toFixed(2);
+  document.querySelector('.coffee-author').textContent = coffee.addedBy;
+  document.querySelector('.coffee-description').textContent = coffee.description;
+
+  populateComments(coffee);
 }
 
 function populateIngredients(coffee) {
@@ -62,33 +84,11 @@ function populateComments(coffee) {
   }
 }
 
-function setInfo(coffee) {
-  let pictureInfoDiv = document.querySelector('.coffee-picture-info');
-
-  pictureInfoDiv.prepend(createCoffeeTitle(coffee));
-  pictureInfoDiv.prepend(createCoffeeImageDiv(coffee));
-
-  populateIngredients(coffee);
-
-  document.querySelector('.coffee-value').textContent = coffee.value;
-  document.querySelector('.average-mark').textContent = coffeeStorage.getRating(coffee).toFixed(2);
-  document.querySelector('.coffee-author').textContent = coffee.addedBy;
-  document.querySelector('.coffee-description').textContent = coffee.description;
-
-  populateComments(coffee);
-}
-
-async function startSettingInfo() {
-  let coffeeId = getURLParam('id');
-  let coffee = await coffeeStorage.getCoffee(coffeeId);
-  if (coffee == null) {
-    onNavigate('/error');
-    return;
-  }
-  setInfo(coffee);
-  if (await authService.isAuthenticated()) {
-    checkMark(authService.user, getURLParam('id'));
-  }
+function createCoffeeTitle(coffee) {
+  let coffeeName = document.createElement("p");
+  coffeeName.classList.add('coffee-title');
+  coffeeName.textContent = coffee.name.toUpperCase();
+  return coffeeName;
 }
 
 async function checkMark(user, coffeeId) {
@@ -115,7 +115,7 @@ async function setMark(button) {
   let coffeeId = getURLParam('id');
   coffeeStorage.addMark(coffeeId, id, mark);
   let coffee = await coffeeStorage.getCoffee(coffeeId);
-  document.querySelector('.average-mark').textContent = coffeeStorage.getRating(coffee).toFixed(2);
+  document.querySelector('.average-mark').textContent = getCoffeeRating(coffee).toFixed(2);
 }
 
 async function leaveComment() {

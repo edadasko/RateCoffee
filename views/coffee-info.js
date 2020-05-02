@@ -1,4 +1,4 @@
-let coffeeInfo = `
+const coffeeInfo = `
 <link rel="stylesheet" href="styles/coffee-info.css">
 <article class="coffee-info">
   <div class="coffee-info-main">

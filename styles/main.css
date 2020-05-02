@@ -257,6 +257,11 @@ footer .contacts .mail-link:hover {
 }
 /* FOOTER END*/
 
+.not-found-message {
+  margin-top: 100px;
+  text-align: center;
+}
+
 /* FOR SMARTPHONES*/
 @media only screen
     and (max-device-width : 500px) {

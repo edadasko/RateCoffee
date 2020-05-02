@@ -1,4 +1,4 @@
-var config = {
+const config = {
     apiKey: "AIzaSyDT0-ekaamyi8lkYzQ-nIT7xyGguuQW-R8",
     authDomain: "ratecoffeespa.firebaseapp.com",
     databaseURL: "https://ratecoffeespa.firebaseio.com"
@@ -42,18 +42,6 @@ class Storage {
         date: comment.date.toISOString().slice(0, 10)
       }
     );
-  }
-
-  getRating(coffee) {
-    if (!('marks' in coffee)) {
-      return 0;
-    }
-
-    let marks = Object.values(coffee.marks);
-    if (marks.length == 0) {
-      return 0;
-    }
-    return marks.reduce((a, b) => (a + b)) / marks.length;
   }
 }
 
