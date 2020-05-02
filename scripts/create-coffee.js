@@ -106,7 +106,7 @@ async function submitForm() {
   let user = authService.user.email;
   name = name.trim().toLowerCase();
 
-  let isInputValid = validateInput(name, value, description);
+  let isInputValid = await validateInput(name, value, description);
   if (!isInputValid) {
     return;
   }
