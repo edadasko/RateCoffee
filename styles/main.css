@@ -313,7 +313,7 @@ footer .contacts .mail-link:hover {
       margin-left: 40px;
       width: 60px;
       height: 60px;
-      margin-top: -5px;
+      line-height: 60px;
     }
 
     .menu-list {
