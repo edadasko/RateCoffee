@@ -45,6 +45,14 @@ label {
   z-index: 10;
 }
 
+.coffee-ingredient {
+  position: absolute;
+  left: 6px;
+  top: 0;
+  height: 143px;
+  width: 109px;
+}
+
 .coffee-form-right {
   width: 60%;
   background-color: var(--light-grey-color);
@@ -78,7 +86,6 @@ label {
 }
 
 .ingredient-select-list-item {
-  margin-left: 20px;
   text-align: left;
   margin-bottom: 10px;
 }
@@ -142,8 +149,7 @@ label {
 }
 
 @media only screen
-    and (max-device-width : 500px)
-    and (orientation: portrait) {
+    and (max-device-width : 500px) {
 
     :root {
       --main-border-radius: 50px;
@@ -205,13 +211,12 @@ label {
 
     .ingredient-select-list-item {
       font-size: 2em;
-      margin-left: 40px;
       margin-bottom: 20px;
     }
 
     .ingredients-select {
       padding: 10px;
-      min-width: 300px;
+      min-width: 350px;
       margin-right: 10px;
     }
 
@@ -224,6 +229,14 @@ label {
     .remove-ingredient-button {
       width: 70px;
       height: 70px;
+    }
+
+    .coffee-ingredient {
+      position: absolute;
+      left: 12px;
+      top: 0;
+      height: 285px;
+      width: 219px;
     }
 
     #add-ingredient-button {

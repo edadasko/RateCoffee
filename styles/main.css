@@ -68,6 +68,7 @@ h1 i {
 a {
   color: white;
   text-decoration: none;
+  cursor: pointer;
 }
 
 ul {
@@ -141,7 +142,7 @@ header .header-search button {
 .menu-list {
   position: absolute;
   top: 50px;
-  padding-top: 17px;
+  padding-top: 16px;
 }
 
 .menu-list li {
@@ -187,6 +188,10 @@ header .header-search button {
   }
 }
 
+#logout-link {
+  display: none;
+}
+
 /* HEADER END */
 
 /* FOOTER */
@@ -219,16 +224,13 @@ footer .contacts a {
   width: 40px;
   height: 40px;
   border-radius: 15%;
-  font-size: 1.8em;
-  padding-top: 1.5px;
-  box-sizing: border-box;
-  vertical-align: middle;
+  line-height: 40px;
   text-align: center;
 }
 
 footer .contacts a i {
   vertical-align: middle;
-  text-align: center;
+  font-size: 1.8em;
 }
 
 footer .contacts .vk-link {
@@ -256,10 +258,14 @@ footer .contacts .mail-link:hover {
 }
 /* FOOTER END*/
 
+.not-found-message {
+  margin-top: 100px;
+  text-align: center;
+}
+
 /* FOR SMARTPHONES*/
 @media only screen
-    and (max-device-width : 500px)
-    and (orientation: portrait) {
+    and (max-device-width : 500px) {
 
     main {
       padding-top: 130px;
@@ -308,7 +314,7 @@ footer .contacts .mail-link:hover {
       margin-left: 40px;
       width: 60px;
       height: 60px;
-      margin-top: -5px;
+      line-height: 60px;
     }
 
     .menu-list {

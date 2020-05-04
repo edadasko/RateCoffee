@@ -4,237 +4,55 @@
     <meta charset="utf-8">
     <title>RateCoffee</title>
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/catalog.css">
     <link rel="stylesheet" href="styles/ingredients.css">
+    <script src="/__/firebase/7.14.2/firebase-app.js"></script>
+    <script src="/__/firebase/7.14.2/firebase-auth.js"></script>
+    <script src="/__/firebase/7.14.2/firebase-database.js"></script>
+    <script src="/__/firebase/init.js"></script>
+    <script src="views/catalog.js"></script>
+    <script src="views/coffee-info.js"></script>
+    <script src="views/create.js"></script>
+    <script src="views/login.js"></script>
+    <script src="views/register.js"></script>
+    <script src="views/notFound.js"></script>
+    <script src="scripts/picture-creator.js"></script>
+    <script src="models/comment.js"></script>
+    <script src="models/ingredient.js"></script>
+    <script src="models/coffee.js"></script>
+    <script src="storage.js"></script>
     <script src="https://kit.fontawesome.com/c25464de2f.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
       <div class="main-menu">
         <div class="header-left-title">
-          <h1><a href="#">RATECOFFEE <i class="fas fa-bars"></i></a></h1>
+          <h1><a href="#" onclick="return false;">RATECOFFEE <i class="fas fa-bars"></i></a></h1>
         </div>
         <nav class="main-navigation">
           <ul class="menu-list hidden">
-            <li><a href="index.html">CATALOG</a></li>
-            <li><a href="create.html">CREATE</a></li>
-            <li><a href="register.html">SIGN UP</a></li>
-            <li><a href="login.html">LOG IN</a></li>
+            <li id="catalog-link"><a>CATALOG</a></li>
+            <li id="create-link"><a>CREATE</a></li>
+            <li id="signup-link"><a>SIGN UP</a></li>
+            <li id="login-link"><a>LOG IN</a></li>
+            <li id="logout-link"><a>LOG OUT</a></li>
           </ul>
         </nav>
       </div>
       <div class="logo">
-        <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+        <a id="image-link"><img src="images/logo.png" alt="logo"></a>
       </div>
       <div class="header-search">
-        <form class="" action="#" method="post">
-          <input type="text" name="search-input" placeholder="Search...">
-          <button type="button" name="search-button"><i class="fas fa-search"></i></button>
+        <form class="search-form" onsubmit="searchCoffee(); return false;">
+          <input type="text" id="search-input" name="search-input" placeholder="Search...">
+          <button type="submit" name="search-button"><i class="fas fa-search"></i></button>
         </form>
       </div>
     </header>
-    <main>
-      <div class="sort-section">
-        <div class="filter">
-          <a class="filter-select" href="#">FILTER</a>
-          <ul class="filter-list hidden">
-            <li><a href="#">CLASSICS</a></li>
-            <li><a href="#">TOP</a></li>
-            <li><a href="#">ALL</a></li>
-          </ul>
-        </div>
-        <div class="sort">
-          <a class="sort-select" href="#">SORT</a>
-          <ul class="sort-list hidden">
-            <li><a href="#">NAME</a></li>
-            <li><a href="#">RATING</a></li>
-            <li><a href="#">DATE</a></li>
-          </ul>
-        </div>
-      </div>
-      <section class="catalog-grid">
-        <a href="coffee-info.html">
-          <div class="catalog-item">
-              <div class="coffee-image">
-                <img src="images/empty-cup.png" alt="empty-cup">
-                <div class="coffee-ingredient coffee-ingredient1 milk-foam"></div>
-                <div class="coffee-ingredient coffee-ingredient2 milk"></div>
-                <div class="coffee-ingredient coffee-ingredient3 espresso"></div>
-              </div>
-              <p class="coffee-title">CAPPUCCINO</p>
-              <div class="grid-item-rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-              </div>
-          </div>
-        </a>
-        <a href="coffee-info.html">
-          <div class="catalog-item">
-              <div class="coffee-image">
-                <img src="images/empty-cup.png" alt="empty-cup">
-                <div class="coffee-ingredient coffee-ingredient1 milk-foam"></div>
-                <div class="coffee-ingredient coffee-ingredient2 milk"></div>
-                <div class="coffee-ingredient coffee-ingredient3 espresso"></div>
-              </div>
-              <p class="coffee-title">CAPPUCCINO</p>
-              <div class="grid-item-rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-              </div>
-          </div>
-        </a>
-        <a href="coffee-info.html">
-          <div class="catalog-item">
-              <div class="coffee-image">
-                <img src="images/empty-cup.png" alt="empty-cup">
-                <div class="coffee-ingredient coffee-ingredient1 milk-foam"></div>
-                <div class="coffee-ingredient coffee-ingredient2 milk"></div>
-                <div class="coffee-ingredient coffee-ingredient3 espresso"></div>
-              </div>
-              <p class="coffee-title">CAPPUCCINO</p>
-              <div class="grid-item-rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-              </div>
-          </div>
-        </a>
-        <a href="coffee-info.html">
-          <div class="catalog-item">
-              <div class="coffee-image">
-                <img src="images/empty-cup.png" alt="empty-cup">
-                <div class="coffee-ingredient coffee-ingredient1 milk-foam"></div>
-                <div class="coffee-ingredient coffee-ingredient2 milk"></div>
-                <div class="coffee-ingredient coffee-ingredient3 espresso"></div>
-              </div>
-              <p class="coffee-title">CAPPUCCINO</p>
-              <div class="grid-item-rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-              </div>
-          </div>
-        </a>
-        <a href="coffee-info.html">
-          <div class="catalog-item">
-              <div class="coffee-image">
-                <img src="images/empty-cup.png" alt="empty-cup">
-                <div class="coffee-ingredient coffee-ingredient1 milk-foam"></div>
-                <div class="coffee-ingredient coffee-ingredient2 milk"></div>
-                <div class="coffee-ingredient coffee-ingredient3 espresso"></div>
-              </div>
-              <p class="coffee-title">CAPPUCCINO</p>
-              <div class="grid-item-rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-              </div>
-          </div>
-        </a>
-        <a href="coffee-info.html">
-          <div class="catalog-item">
-              <div class="coffee-image">
-                <img src="images/empty-cup.png" alt="empty-cup">
-                <div class="coffee-ingredient coffee-ingredient1 milk-foam"></div>
-                <div class="coffee-ingredient coffee-ingredient2 milk"></div>
-                <div class="coffee-ingredient coffee-ingredient3 espresso"></div>
-              </div>
-              <p class="coffee-title">CAPPUCCINO</p>
-              <div class="grid-item-rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-              </div>
-          </div>
-        </a>
-        <a href="coffee-info.html">
-          <div class="catalog-item">
-              <div class="coffee-image">
-                <img src="images/empty-cup.png" alt="empty-cup">
-                <div class="coffee-ingredient coffee-ingredient1 milk-foam"></div>
-                <div class="coffee-ingredient coffee-ingredient2 milk"></div>
-                <div class="coffee-ingredient coffee-ingredient3 espresso"></div>
-              </div>
-              <p class="coffee-title">CAPPUCCINO</p>
-              <div class="grid-item-rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-              </div>
-          </div>
-        </a>
-        <a href="coffee-info.html">
-          <div class="catalog-item">
-              <div class="coffee-image">
-                <img src="images/empty-cup.png" alt="empty-cup">
-                <div class="coffee-ingredient coffee-ingredient1 milk-foam"></div>
-                <div class="coffee-ingredient coffee-ingredient2 milk"></div>
-                <div class="coffee-ingredient coffee-ingredient3 espresso"></div>
-              </div>
-              <p class="coffee-title">CAPPUCCINO</p>
-              <div class="grid-item-rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-              </div>
-          </div>
-        </a>
-        <a href="coffee-info.html">
-          <div class="catalog-item">
-              <div class="coffee-image">
-                <img src="images/empty-cup.png" alt="empty-cup">
-                <div class="coffee-ingredient coffee-ingredient1 milk-foam"></div>
-                <div class="coffee-ingredient coffee-ingredient2 milk"></div>
-                <div class="coffee-ingredient coffee-ingredient3 espresso"></div>
-              </div>
-              <p class="coffee-title">CAPPUCCINO</p>
-              <div class="grid-item-rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-              </div>
-          </div>
-        </a>
-        <a href="coffee-info.html">
-          <div class="catalog-item">
-              <div class="coffee-image">
-                <img src="images/empty-cup.png" alt="empty-cup">
-                <div class="coffee-ingredient coffee-ingredient1 milk-foam"></div>
-                <div class="coffee-ingredient coffee-ingredient2 milk"></div>
-                <div class="coffee-ingredient coffee-ingredient3 espresso"></div>
-              </div>
-              <p class="coffee-title">CAPPUCCINO</p>
-              <div class="grid-item-rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-              </div>
-          </div>
-        </a>
-      </section>
+    <main id="root">
     </main>
+    <script src="authService.js"></script>
+    <script src="router.js"></script>
+    <script src="scripts/main.js"></script>
     <footer>
       <p class="copyright">Copyright @ 2020. Created by Eduard Adasko </p>
       <div class="contacts">

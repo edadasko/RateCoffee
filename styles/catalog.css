@@ -45,18 +45,18 @@
   display: block;
 }
 
-.sort-list {
-  position: absolute;
-  padding-top: 15px;
-  text-align: right;
-  left: -160px;
-  z-index: 100;
-}
-
 .sort {
   position: relative;
   display: inline-block;
   margin-right: 60px;
+}
+
+.sort-list {
+  position: absolute;
+  padding-top: 15px;
+  text-align: right;
+  right: -7px;
+  z-index: 100;
 }
 
 .sort-list li a {
@@ -93,6 +93,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
   padding: 10px;
 }
 
@@ -132,31 +133,17 @@
   width: 85px;
 }
 
-.coffee-ingredient1 {
-  clip-path: polygon(0 20%, 100% 20%, 100% 100%, 0% 100%);
-  -webkit-clip-path: polygon(0 20%, 100% 20%, 100% 100%, 0% 100%);
-}
-
-.coffee-ingredient2 {
-  clip-path: polygon(0 45%, 100% 45%, 100% 100%, 0% 100%);
-  -webkit-clip-path: polygon(0 45%, 100% 45%, 100% 100%, 0% 100%);
-}
-
-.coffee-ingredient3 {
-  clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0% 100%);
-  -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0% 100%);
-}
-
 .coffee-title {
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
   font-size: 1.2em;
 }
 
 /* FOR SMARTPHONES */
 @media only screen
-    and (max-device-width : 500px)
-    and (orientation: portrait) {
+    and (max-device-width : 500px){
 
     .catalog-grid {
       grid-template-columns: repeat(auto-fit, 600px);
@@ -196,7 +183,6 @@
     .filter-list, .sort-list {
       position: absolute;
       padding-top: 31px;
-      left: -25px;
       z-index: 100;
     }
 
@@ -206,7 +192,11 @@
     }
 
     .sort-list {
-      left: -300px;
+      right: -25px;
+    }
+
+    .filter-list {
+      left: -20px;
     }
 
     .sort-section a {
