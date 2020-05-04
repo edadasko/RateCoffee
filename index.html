@@ -15,7 +15,6 @@
     <script src="views/login.js"></script>
     <script src="views/register.js"></script>
     <script src="views/notFound.js"></script>
-    <script src="scripts/main.js"></script>
     <script src="scripts/picture-creator.js"></script>
     <script src="models/comment.js"></script>
     <script src="models/ingredient.js"></script>
@@ -31,16 +30,16 @@
         </div>
         <nav class="main-navigation">
           <ul class="menu-list hidden">
-            <li><a href="#" onclick="onNavigate('/'); return false;">CATALOG</a></li>
-            <li id="create-link"><a href="#" onclick="onNavigate('/create'); return false;">CREATE</a></li>
-            <li id="signup-link"><a href="#" onclick="onNavigate('/register'); return false;">SIGN UP</a></li>
-            <li id="login-link"><a href="#" onclick="onNavigate('/login'); return false;">LOG IN</a></li>
-            <li id="logout-link"><a href="#" onclick="authService.logOut(); return false;">LOG OUT</a></li>
+            <li id="catalog-link"><a>CATALOG</a></li>
+            <li id="create-link"><a>CREATE</a></li>
+            <li id="signup-link"><a>SIGN UP</a></li>
+            <li id="login-link"><a>LOG IN</a></li>
+            <li id="logout-link"><a>LOG OUT</a></li>
           </ul>
         </nav>
       </div>
       <div class="logo">
-        <a href="#" onclick="onNavigate('/'); return false;"><img src="images/logo.png" alt="logo"></a>
+        <a id="image-link"><img src="images/logo.png" alt="logo"></a>
       </div>
       <div class="header-search">
         <form class="search-form" onsubmit="searchCoffee(); return false;">
@@ -53,6 +52,7 @@
     </main>
     <script src="authService.js"></script>
     <script src="router.js"></script>
+    <script src="scripts/main.js"></script>
     <footer>
       <p class="copyright">Copyright @ 2020. Created by Eduard Adasko </p>
       <div class="contacts">

@@ -68,6 +68,7 @@ h1 i {
 a {
   color: white;
   text-decoration: none;
+  cursor: pointer;
 }
 
 ul {

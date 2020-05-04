@@ -42,3 +42,41 @@ function getCoffeeRating(coffee) {
   }
   return marks.reduce((a, b) => (a + b)) / marks.length;
 }
+
+function setEventListeners() {
+  const catalogLink = document.querySelector('#catalog-link a');
+  const createLink = document.querySelector('#create-link a');
+  const signupLink = document.querySelector('#signup-link a');
+  const loginLink = document.querySelector('#login-link a');
+  const logoutLink = document.querySelector('#logout-link a');
+  const imageLink = document.querySelector('#image-link');
+
+  createLink.addEventListener("click", function(e) {
+      onNavigate('/create');
+      e.preventDefault();
+  }, true);
+
+  signupLink.addEventListener("click", function(e) {
+      onNavigate('/register');
+      e.preventDefault();
+  }, true);
+
+  loginLink.addEventListener("click", function(e) {
+      onNavigate('/login');
+      e.preventDefault();
+  }, true);
+
+  logoutLink.addEventListener("click", function(e) {
+      authService.logOut();
+      e.preventDefault();
+  }, true);
+
+  for (link of [imageLink, catalogLink]) {
+    link.addEventListener("click", function(e) {
+        onNavigate('/');
+        e.preventDefault();
+    }, true);
+  }
+}
+
+setEventListeners();
