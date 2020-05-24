@@ -1,6 +1,6 @@
 # RateCoffee
 
-## Front-end univercity project - "Coffee Database"
+## Front-end university project - "Coffee Database"
 
 A website, where user can share own unique cocktail recipe or rate cocktails created by others
 
